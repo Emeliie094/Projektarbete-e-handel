@@ -21,12 +21,19 @@ Resturangen, väldigt lättanvändlig.
    
    E-Handel med kristaller.
    
-   - En produktsida med eventcards som är anpassad för kunden (kanske någon typ av flipcard för att få fram dess egenskaper direkt?). Kunden ska kunna filtrera kristallerna utifrån deras egenskaper, om det är fullmåne, osv.
-   
+   - En produktsida med eventcards som är anpassad för kunden (kanske någon typ av flipcard för att få fram dess egenskaper direkt?). Kunden ska kunna filtrera kristallerna utifrån deras egenskaper,
+     om det är fullmåne (hämta information om månfaserna via API så att den uppdateras efter aktuell månfas), stjärntecken, ritualer och/eller liknande.
+	- eventcards kan visa symboler för element, månfas, stjärntecken under bild för att snabbt se en hint om kristallens egenskaper.
+	
+
    - En sida för den specifika kristallen man klickar på för att läsa mer.
+	
    
    - Rekomendationer utifrån den valda kristallen.
+	- om man klickar på ett card kan man också få upp förslag om andra kristaller inom samma kategorier (för merförsäljning).
+	-alternativt förslag till "ritualer" där kristallen ingår.
    
    - Kanske slumpmässiga citat (från api) som visas på sidan?
    
-   - En backoffice sida för att lägga till/ta bort/redigera produkter. 
+   - En backoffice sida för att lägga till/ta bort/redigera produkter. Pedagogiskt utformad med utgångspunkt i att personen som ska sköta sidan inte är "data-erfaren".
+	- Eventuellt en funktion för att gruppera produkter till speciella inlägg, t ex om man vill skapa en kampanj för en speciell ritual där vissa kristaller ingår.
