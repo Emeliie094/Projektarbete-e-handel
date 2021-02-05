@@ -16,3 +16,17 @@ Resturangen, väldigt lättanvändlig.
   E-handel med kristaller
    - filter kopplade till "andra händelser" tillexepel om det är fullmåne så kan man få fram kristaller som är kopplade till detta.
    - Få upp resultat som är kopplade till egenskaper.
+   
+   -------------------------------------------------------------------------------------------------------
+   
+   E-Handel med kristaller.
+   
+   - En produktsida med eventcards som är anpassad för kunden (kanske någon typ av flipcard för att få fram dess egenskaper direkt?). Kunden ska kunna filtrera kristallerna utifrån deras egenskaper, om det är fullmåne, osv.
+   
+   - En sida för den specifika kristallen man klickar på för att läsa mer.
+   
+   - Rekomendationer utifrån den valda kristallen.
+   
+   - Kanske slumpmässiga citat (från api) som visas på sidan?
+   
+   - En backoffice sida för att lägga till/ta bort/redigera produkter. 
