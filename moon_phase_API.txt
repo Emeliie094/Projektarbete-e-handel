@@ -1,0 +1,51 @@
+Moonphase API
+
+The MoonPhase Length resource takes a Unix timestamp parameter:
+
+https://api.farmsense.net/v1/moonphases/?d=1350526582
+
+
+Man räknar ut Unix timestamp:
+
+let dateTime = new Date().getTime();
+let timestamp = Math.floor(dateTime / 1000);
+console.log(timestamp);
+
+För att testa det mot exempelvis februaris fullmåne:
+
+let dateTime = new Date('2021-02-27').getTime();
+let timestamp = Math.floor(dateTime / 1000);
+console.log(timestamp);
+
+
+APi json exempel:
+
+// 20210209135112
+// https://api.farmsense.net/v1/moonphases/?d=1614384000
+
+[
+  {
+    "Error": 0,
+    "ErrorMsg": "success",
+    "TargetDate": "1614384000",
+    "Moon": [
+      "Snow Moon"
+    ],
+    "Index": 14,
+    "Age": 14.3838182200626700790735412738285958766937255859375,
+    "Phase": "Full Moon",
+    "Distance": 376272.3200000000069849193096160888671875,
+    "Illumination": 1,
+    "AngularDiameter": 0.52929260614466933088095856874133460223674774169921875,
+    "DistanceToSun": 148172808.7006361782550811767578125,
+    "SunAngularDiameter": 0.5382576587930845146701130943256430327892303466796875
+  }
+]
+
+- Kanske kan använda Moon : "Snow Moon" som parameter mot kristallerna då den är mer specifik för just
+den fullmånen som ska komma.
+
+- En parameter som relaterar till månfasen och en till vilken måne vi är i. Så 2 parametrar som ska stämma med kristallen?
+
+
+
