@@ -50,7 +50,6 @@ const products = [
 ]
 
   return (
-<<<<<<< HEAD
     <Router>
       <PageHeader/>
       <Switch>
@@ -68,14 +67,6 @@ const products = [
         </Route>
         <Route path="*">
           <NotFound/>
-=======
-    <div className="App">
-     <h1>Hello World</h1>
-      <Router>
-        <Switch>
-        <Route exact path="/">
-          <Home />
->>>>>>> 4476aa763ea2fe52ef4dec70076fe82298439c73
         </Route>
       </Switch>
     </Router>
