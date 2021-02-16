@@ -57,7 +57,7 @@ const products = [
           <Home/>
         </Route>
         <Route path="/shop">
-          <Shop/>
+          <Shop products= {products}/>
         </Route>
         <Route path="/checkout">
           <Checkout/>

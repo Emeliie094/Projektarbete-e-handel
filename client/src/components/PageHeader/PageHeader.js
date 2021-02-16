@@ -9,7 +9,7 @@ return (
     <header>
         <nav>
             <div className="logo">
-                <img src='src\components\PageHeader\mystical2.12.png' alt="logo"/>
+                <img className="nav-logo"src="https://via.placeholder.com/50x50.png?text=Logo" alt="logo"/>
             </div>
         <ul className="nav-links" style={{transform: open ? "translateX(0px)" : ""}}>
             <li>
@@ -23,6 +23,8 @@ return (
             </li>
         </ul>
         <i onClick={()=> setOpen(!open)}className="fas fa-bars burger"></i>
+        <i className="fas fa-search search"></i>
+        <i className="fas fa-shopping-bag shop-bag"></i>
         </nav>
         
     </header>
