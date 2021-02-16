@@ -91,14 +91,10 @@ const products = [
           <Home/>
         </Route>
         <Route path="/shop">
-<<<<<<< HEAD
-          <Shop products= {products}/>
-=======
           <Shop products={products}/>
         </Route>
         <Route path="/products/:id">
           <DetailPage products={products}/>
->>>>>>> d33f9f198a66bd59be1d5ab1a696b4c1dc8f6a6f
         </Route>
         <Route path="/checkout">
           <Checkout/>
