@@ -1,25 +1,47 @@
 import { Link } from "react-router-dom";
 import "./ProductCard.css";
 
-const ProductCard = ({products}) => (
-    <div class="product-card-flex">
+const ProductCard = ({ products }) => (
+  <div className="product-card-flex">
+    {products.map((product) => (
+      <div className="wrapper">
+        <div className="container">
+          <Link className="text-link" to={`/products/${product.id}`}>
+            <div className="top">
+              <img src={product.imageUrl} />
+            </div>
+          </Link>
+          <div className="bottom">
+            <div className="left">
+              <div className="details">
+                <Link className="text-link" to={`/products/${product.id}`}>
+                  <h4>{product.name}</h4>
+                  <p>{product.price} KR</p>
+                </Link>
+              </div>
+              <div className="buy">
+                <button className="add-to-cart">
+                  <i className="fas fa-cart-plus"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
 
-{products.map((product) => (
-      <Link className="text-link" to={`/products/${product.id}`}>
-        <div class="product-card">
-    <div class="product-img">
-        <img src={product.imageUrl} />
-    </div>
-    <h4 class="text-center">{product.name}</h4>
-    <h5 class="text-center">{product.price} KR</h5>
-    <h6 class="text-center">Lorem ipsum</h6>
-    </div>
-      </Link>
+        <div className="inside">
+          <div className="icon">
+            <i className="fas fa-info-circle"></i>
+          </div>
+          <div className="contents">
+            <div className="text">
+              <h5>{product.moon} {product.zodiac}</h5><br/>
+              <p>{product.description}</p>
+            </div>
+          </div>
+        </div>
+      </div>
     ))}
-
   </div>
-)
-  
-
+);
 
 export default ProductCard;
