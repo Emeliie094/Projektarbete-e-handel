@@ -1,11 +1,63 @@
-.container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-color: antiquewhite;
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
-.container >div{
-    padding:10px;
+.wrapper {
+    position: absolute;
+    top:50%;
+    width: 100%;
+    padding: 0 20px;
+    transform: translateY(-50%);
+    background-color: antiquewhite;
+       
+}
+
+.form{
+    display:flex;  
+}
+
+.inputFields {
+    display: flex;
+    flex-direction: column;
+    margin-right: 4%; 
+}
+
+.selectFields {
+    position:relative;
+    cursor:pointer;
+}
+
+.selectFields select {
+    background: transparent;
+}
+
+
+.inputFields,
+.selectFields{
+    width: 48%;
+}
+
+.inputFields .input,
+.selectFields .select,
+.textarea{
+    margin: 10px 0;
+    background: transparent;
+    border: 0px;
+    border-bottom: 2px solid #a5a5a5;
+    padding: 10px;
+    color: #c5ecfd;
+    width: 100%; 
+}
+
+.textarea{
+    height: 212px;
+  }
+
+.select {
+    padding: 10px;
+    background: transparent;
 }
