@@ -86,17 +86,13 @@ nav .shop-bag{
         transform: translateX(-500px);
         transition:0.5s ease-in-out;
     }
-    nav .nav-links{
-        padding: 40px;
-        
-    }
+
     nav .nav-links li {
         margin: 10px;
         padding: 20px;
         text-transform: uppercase;
         border-bottom: 1px solid whitesmoke;
         
-
     }
 
     nav .nav-link:last-of-type {

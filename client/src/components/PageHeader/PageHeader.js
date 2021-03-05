@@ -5,6 +5,7 @@ import './PageHeaderStyle.css';
 const PageHeader = () => {
 
     const [open,setOpen]=useState(false);
+
 return (
     <header>
         <nav>
@@ -22,9 +23,12 @@ return (
                 <NavLink className="nav-link"  exact to = {"/checkout"}>Checkout</NavLink>
             </li>
         </ul>
+        {/* <ul className="shopping-nav" style={{transform: open ? "translateX(0px)" : ""}}>
+            <li>Shopping cart items</li>
+        </ul> */}
         <i onClick={()=> setOpen(!open)}className="fas fa-bars burger"></i>
         <i className="fas fa-search search"></i>
-        <i className="fas fa-shopping-bag shop-bag"></i>
+        {/* <i onClick={()=> setOpen(!open)} className="fas fa-shopping-bag shop-bag"></i> */}
         </nav>
         
     </header>
