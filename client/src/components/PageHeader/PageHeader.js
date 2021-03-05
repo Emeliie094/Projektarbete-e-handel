@@ -1,10 +1,33 @@
-import {NavLink} from "react-router-dom";
+import {NavLink, Link} from "react-router-dom";
 import {useState} from "react";
 import './PageHeaderStyle.css';
 
 const PageHeader = () => {
 
     const [open,setOpen]=useState(false);
+    const [openCart,setOpenCart]=useState(false);
+    // const [openSearch,setOpenSearch]=useState(false);
+
+    const openMenuIcon = ()=>{
+        setOpen(!open);
+        console.log("menu open");
+
+    };
+    const openCartIcon = ()=>{
+        setOpenCart(!open);
+        console.log("cart open");
+
+        const element = document.getElementsByClassName("shopping-nav");
+        // transform: open ? "translateX(0px)" : ""}
+
+
+
+    };
+
+    // const openSearchBar = ()=>{
+    //     setOpenSearch(!open);
+    //     console.log("search open");
+    // };
 
 return (
     <header>
@@ -23,12 +46,18 @@ return (
                 <NavLink className="nav-link"  exact to = {"/checkout"}>Checkout</NavLink>
             </li>
         </ul>
-        {/* <ul className="shopping-nav" style={{transform: open ? "translateX(0px)" : ""}}>
-            <li>Shopping cart items</li>
-        </ul> */}
-        <i onClick={()=> setOpen(!open)}className="fas fa-bars burger"></i>
+        <ul className="shopping-nav">
+        
+            {/* <ul className="shopping-items">Shopping cart items</ul>
+            <li>Kristall 1, 450kr<button>Remove</button></li>
+            <li>Kristall 2, 600kr<button>Remove</button></li>
+            <li>Kristall 3, 900kr<button>Remove</button></li>
+            <li>Sum:</li>
+            <button>Proceed to payment</button> */}
+        </ul>
+        <i onClick={openMenuIcon} className="fas fa-bars burger"></i>
         <i className="fas fa-search search"></i>
-        {/* <i onClick={()=> setOpen(!open)} className="fas fa-shopping-bag shop-bag"></i> */}
+        <i onClick={openCartIcon} className="fas fa-shopping-bag shop-bag"></i>
         </nav>
         
     </header>
