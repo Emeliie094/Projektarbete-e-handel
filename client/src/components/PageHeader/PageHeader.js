@@ -1,8 +1,25 @@
-import {NavLink} from "react-router-dom";
+import {NavLink, useHistory} from "react-router-dom";
 import {useState} from "react";
 import './PageHeaderStyle.css';
 
 const PageHeader = () => {
+
+    const history = useHistory();
+
+    const [searchTerm, setSearchTerm]=useState("");
+
+    const handleSubmit = (event)=>{
+        event.preventDefault();
+
+        history.push({
+
+            pathname: '/search',
+            search:'?=${searchTerm}'
+        });
+
+        console.log(searchTerm);
+
+    };
 
     const [openMenu,setOpenMenu]=useState(false);
     const [openCart,setOpenCart]=useState(false);
@@ -19,7 +36,7 @@ const PageHeader = () => {
 
     const openSearchBar = ()=>{
         setOpenSearch(!openSearch);
-    };
+    }; 
 
 return (
     <header>
@@ -47,9 +64,14 @@ return (
             <li>Sum:</li>
             <button>Proceed to payment</button>
         </div>
-        <form className="search-bar" style={{transform: openSearch ? "translateX(0px)" : ""}}>
-            <input type="text" placeholder="search"></input>
-            <button>Search</button>
+        <form onSubmit={handleSubmit}className="search-bar" style={{transform: openSearch ? "translateX(0px)" : ""}}>
+            <input 
+            className="search-bar-field"
+            type="search" 
+            placeholder="search"
+            value={searchTerm}
+            onChange={(e)=> setSearchTerm(e.target.value)} />
+            <button className="search-bar-btn"><i className="fas fa-search "></i></button>
         </form>
        
         <i onClick={openMenuIcon} className="fas fa-bars burger"></i>
@@ -62,4 +84,3 @@ return (
 }
 export default PageHeader;
 
-<NavLink className="nav-link"  exact to = {"/"}>Home</NavLink>

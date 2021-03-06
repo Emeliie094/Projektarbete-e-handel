@@ -55,12 +55,25 @@ nav .burger{
     font-size: 20px;
     display:none;
     cursor: pointer;
-
 }
+
  .shop-bag{
     font-size: 20px;
     display:none;
     cursor: pointer;
+
+}
+
+.search-bar-field {
+    border:none;
+    border-bottom: 1px solid black ;
+    width: 60%;
+    background-color:transparent;
+}
+
+.search-bar-btn {
+    border: none;
+    background-color: transparent;
 
 }
 
@@ -88,7 +101,7 @@ nav .burger{
         width: 35%;
         padding:40px;
         transform: translateX(-500px);
-        transition:0.5s ease-in-out;
+        transition:0.7s ease-in-out;
     }
 
     nav .nav-links li {
@@ -119,7 +132,7 @@ nav .burger{
         width: 35%;
         padding:40px;
         transform: translateX(+500px);
-        transition:0.5s ease-in-out;
+        transition:0.7s ease-in-out;
     }
 
     nav .search-bar{
@@ -132,7 +145,7 @@ nav .burger{
         width: 100%;
         padding:40px;
         transform: translateY(-500px);
-        transition:1s ease-in-out;
+        transition:0.7s ease-in-out;
     }
 
 }
