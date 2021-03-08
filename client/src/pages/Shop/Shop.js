@@ -1,5 +1,4 @@
-import ProductCard from "../../components/ProductCard/ProductCard.js";
-import "../../components/ProductCard/ProductCard.css";
+import ProductCardGrid from "../../components/ProductCardGrid/ProductCardGrid.js";
 
 const Shop = ({products})=>{
     return (
@@ -7,7 +6,7 @@ const Shop = ({products})=>{
          <h1>Shop</h1>
          <h1>**FILTER**</h1>
          
-        <ProductCard products={products}/>
+        <ProductCardGrid products={products}/>
          </div>
     );
     }
