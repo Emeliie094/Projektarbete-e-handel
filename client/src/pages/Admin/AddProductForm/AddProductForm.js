@@ -132,7 +132,7 @@ const AddProductForm = () => {
                         <label for="zodiac">
                         Zodiac
                         <select className="select" multiple={true} onChange= {handleSelected} id="zodiac">
-                            <option className="select" value="Aries" >Aries| March 21-April 19</option>
+                            <option className="select"value="Aries" >Aries| March 21-April 19</option>
                             <option className="select"value="Taurus">Taurus | April 20 - May 20</option>
                             <option className="select"value="Gemini">Gemini | May 21 - June 21</option>
                             <option className="select"value="Cancer">Cancer | June 22 - July 22</option>

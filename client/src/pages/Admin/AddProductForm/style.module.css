@@ -60,4 +60,5 @@
 .select {
     padding: 10px;
     background: transparent;
+    outline:none;
 }
