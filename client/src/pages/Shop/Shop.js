@@ -6,6 +6,7 @@ const Shop = ({products})=>{
      <div>
          <h1>Shop</h1>
          <h1>**FILTER**</h1>
+         
         <ProductCard products={products}/>
          </div>
     );

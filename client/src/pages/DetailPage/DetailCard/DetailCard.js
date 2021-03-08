@@ -11,7 +11,7 @@ const DetailCard = ({products})=> {
 
     return (
         <div>
-        <NavLink className={style.linkBack} to="/shop">← Go back to all products</NavLink>
+        {/* <NavLink className={style.linkBack} to="/shop">← Go back to all products</NavLink> */}
         <div className={style.wrapper}>
     <div className={style.productImg}>
       <img src={product.imageUrl}/>
