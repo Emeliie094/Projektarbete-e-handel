@@ -1,8 +1,4 @@
 
-  .text-link{
-    text-decoration: none;
-    color: #2d2d2d;
-  }
   
   .wrapper {
     width: 300px;
@@ -53,6 +49,8 @@
   .details {
     padding: 20px;
     float: left;
+    text-decoration: none;
+    color: #2d2d2d;
   }
   .buy {
     float: right;

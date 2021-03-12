@@ -37,34 +37,36 @@ const AddProductForm = () => {
     }
 
 
-    const handleSelected = (e) => {
-        let value = Array.from(e.target.selectedOptions, option => option.value);
-        setZodiac(value);
+    // const handleSelected = (e) => {
+    //     let value = Array.from(e.target.selectedOptions, option => option.value);
+    //     setZodiac(value);
 
-    }
+    // }
 
     const currentEventHandler = (e) => {
 
         let values = Array.from(e.currentTarget.selectedOptions, option => option.value);
 
         console.log(values);
+        console.log(e.currentTarget.className);
 
-        // if (e.currentTarget.className === "AddProduct_selectMoon__2Jcdu"){
-        //     setMoon(values);
-        //     console.log("moon");   
-            
-        //     if (e.currentTarget.className === "AddProduct_selectMoonphase__3pGcR"){
-        //         setMoonphase(values); 
-        //         console.log("moonphase");   
-        //     }
-        // }
+        if (e.currentTarget.className === "AddProduct_selectMoon__2Jcdu"){
+            JSON.stringify(values);
+            setMoon(values);
 
-        
+        }
 
-            
-       
-        // console.log(e.currentTarget.parent);
-        
+        if (e.currentTarget.className === "AddProduct_selectMoonphase__3pGcR"){
+            setMoonphase(values); 
+            console.log("moonphase");   
+        }
+
+        if (e.currentTarget.className === "AddProduct_selectZodiac__tIXpT"){
+            setZodiac(values); 
+            console.log("zodiac");   
+        }
+
+    
     }
 
 
@@ -159,8 +161,8 @@ const AddProductForm = () => {
 
                     <div>
                         <label className={styles.zodiac}>Zodiac 
-                        <select className={styles.selectZodiac} multiple={true} onChange= {handleSelected} onClick={openZodiacSelection} style={{display: openZodiac ? "block" : ""}}>
-                            <option className={styles.option} value="Aries" >Aries| March 21-April 19</option>
+                        <select className={styles.selectZodiac} multiple={true} onChange= {currentEventHandler} onClick={openZodiacSelection} style={{display: openZodiac ? "block" : ""}}>
+                            <option className={styles.option} value="Aries">Aries| March 21-April 19</option>
                             <option className={styles.option}value="Taurus">Taurus | April 20 - May 20</option>
                             <option className={styles.option}value="Gemini">Gemini | May 21 - June 21</option>
                             <option className={styles.option}value="Cancer">Cancer | June 22 - July 22</option>

@@ -16,10 +16,10 @@ const PreviewProductCard = ({product})=>{
             <div className={styles.bottom}>
                 <div className={styles.left}>
                 <div className={styles.details}>
-                    <Link className={styles.textLink }to={`/products/${product.id}`}>
+                   
                     <h4>{product.name}</h4>
                     <p>{product.price} KR</p>
-                    </Link>
+                   
                 </div>
                 <div className={styles.buy}>
                     <button className={styles.addToCart}>
@@ -30,13 +30,13 @@ const PreviewProductCard = ({product})=>{
             </div>
             </div>
 
-            <div className="inside">
-            <div className="icon">
+            <div className={styles.inside}>
+            <div className={styles.icon}>
                 <i className="fas fa-info-circle"></i>
             </div>
-            <div className="contents">
-                <div className="text">
-                <h5>{product.moon} {product.zodiac}</h5><br/>
+            <div className={styles.content}>
+                <div className={styles.text}>
+                <h5>{product.moon} | {product.moonphase} | {product.zodiac}</h5><br/>
                 <p>{product.description}</p>
                 </div>
             </div>
