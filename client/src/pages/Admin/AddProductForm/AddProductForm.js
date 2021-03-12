@@ -40,7 +40,33 @@ const AddProductForm = () => {
     const handleSelected = (e) => {
         let value = Array.from(e.target.selectedOptions, option => option.value);
         setZodiac(value);
+
     }
+
+    const currentEventHandler = (e) => {
+
+        let values = Array.from(e.currentTarget.selectedOptions, option => option.value);
+
+        console.log(values);
+
+        // if (e.currentTarget.className === "AddProduct_selectMoon__2Jcdu"){
+        //     setMoon(values);
+        //     console.log("moon");   
+            
+        //     if (e.currentTarget.className === "AddProduct_selectMoonphase__3pGcR"){
+        //         setMoonphase(values); 
+        //         console.log("moonphase");   
+        //     }
+        // }
+
+        
+
+            
+       
+        // console.log(e.currentTarget.parent);
+        
+    }
+
 
     const openZodiacSelection = ()=>{
         setOpenZodiac(!openZodiac);
@@ -48,12 +74,12 @@ const AddProductForm = () => {
 
     const openMoonphaseSelection = ()=>{
         setOpenMoonphase(!openMoonphase);
-        console.log("open Moonphase selection");
+        // console.log("open Moonphase selection");
     };
 
     const openMoonSelection = ()=>{
         setOpenMoon(!openMoon);
-        console.log("open Moon selection");
+        // console.log("open Moon selection");
     };
 
 
@@ -128,46 +154,12 @@ const AddProductForm = () => {
                     Add Product
                 </button>
                 </div>
-                {/* Hur löser man det med checkbox som kan ta in flera värden */}
+               
                 <div className={styles.selectFields}>
-                    {/* <div> 
-                        <label for="moonphase_1">
-                        New Moon
-                        <input 
-                        type="checkbox" 
-                        id="moonphase_1"
-                        value= "newmoon"
-                        className={styles.checkbox}
-                        onChange={(e) => setMoonphase (e.target.value)}
-                        />
-                        </label>
-                        <label for="moonphase_2">
-                            Full Moon
-                        <input 
-                        type="checkbox" 
-                        id="moonphase_2"
-                        value= "fullmoon"
-                        className={styles.checkbox}
-                        onChange={(e) => setMoonphase (e.target.value)}
-                        />
-                        </label>    
-                    </div>
-                   
-                    <div>
-                        <label for="moon_1">
-                        Snowmoon/december
-                        </label>
-                        <input
-                        type="checkbox"
-                        className={styles.checkbox}
-                        id="moon_1"
-                        value={moon}
-                        onChange={(e) => setMoon(e.target.value)}
-                        />
-                    </div> */}
+
                     <div>
                         <label className={styles.zodiac}>Zodiac 
-                        <select className={styles.selectZodiac}  multiple={true} onChange= {handleSelected} onClick={openZodiacSelection} style={{display: openZodiac ? "block" : ""}}>
+                        <select className={styles.selectZodiac} multiple={true} onChange= {handleSelected} onClick={openZodiacSelection} style={{display: openZodiac ? "block" : ""}}>
                             <option className={styles.option} value="Aries" >Aries| March 21-April 19</option>
                             <option className={styles.option}value="Taurus">Taurus | April 20 - May 20</option>
                             <option className={styles.option}value="Gemini">Gemini | May 21 - June 21</option>
@@ -186,7 +178,7 @@ const AddProductForm = () => {
 
                     <div>
                         <label className={styles.moonphase}>Moonphase 
-                        <select className={styles.selectMoonphase}  multiple={true} onChange= {handleSelected} onClick={openMoonphaseSelection} style={{display: openMoonphase ? "block" : ""}}>
+                        <select className={styles.selectMoonphase} multiple={true} onChange= {currentEventHandler} onClick={openMoonphaseSelection} style={{display: openMoonphase ? "block" : ""}}>
                             <option className={styles.option} value="Last Quarter" >Last Quarter</option>
                             <option className={styles.option}value="New Moon">New Moon</option>
                             <option className={styles.option}value="First Quarter">First Quarter</option>
@@ -197,7 +189,7 @@ const AddProductForm = () => {
 
                      <div>
                         <label className={styles.moon}>Moon
-                        <select className={styles.selectMoon}  multiple={true} onChange= {handleSelected} onClick={openMoonSelection} style={{display: openMoon ? "block" : ""}}>
+                        <select className={styles.selectMoon}  multiple={true} onChange= {currentEventHandler} onClick={openMoonSelection} style={{display: openMoon ? "block" : ""}}>
                             <option className={styles.option} value="Snowmoon" >Snowmoon</option>
                             <option className={styles.option}value="New Moon">New Moon</option>
                             <option className={styles.option}value="First Quarter">First Quarter</option>
