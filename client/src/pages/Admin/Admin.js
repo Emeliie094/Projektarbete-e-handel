@@ -1,10 +1,11 @@
 import React from 'react'
-import ProductList from '../../components/ProductList/ProductList'
+import ProductTable from '../../components/ProductTable/ProductTable';
+
 
 const Admin = ({products}) => {
     return (
         <div>
-            <ProductList products={products}/>
+            <ProductTable products={products}/>
         </div>
     )
 }
