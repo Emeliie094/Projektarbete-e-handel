@@ -125,7 +125,7 @@ const products = [
           <Checkout/>
         </Route>
         <Route path="/admin" exact>
-          <Admin/>
+          <Admin products={products}/>
         </Route>
         <Route path="/admin/addproduct">
           <AddProductForm/>

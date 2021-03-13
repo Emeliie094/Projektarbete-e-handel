@@ -1,9 +1,10 @@
 import React from 'react'
+import ProductList from '../../components/ProductList/ProductList'
 
-const Admin = () => {
+const Admin = ({products}) => {
     return (
         <div>
-            <h1>Admin</h1>
+            <ProductList products={products}/>
         </div>
     )
 }
