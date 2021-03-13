@@ -36,34 +36,28 @@ const AddProductForm = () => {
         // onAdd(product); lägg till AddProductForm({onAdd}) och lägg till i App.js
     }
 
-
-    // const handleSelected = (e) => {
-    //     let value = Array.from(e.target.selectedOptions, option => option.value);
-    //     setZodiac(value);
-
-    // }
-
+    
     const currentEventHandler = (e) => {
 
         let values = Array.from(e.currentTarget.selectedOptions, option => option.value);
 
-        console.log(values);
-        console.log(e.currentTarget.className);
 
-        if (e.currentTarget.className === "AddProduct_selectMoon__2Jcdu"){
-            JSON.stringify(values);
+        console.log(e.currentTarget.id);
+
+        if (e.currentTarget.id === "moon"){
             setMoon(values);
 
+
         }
 
-        if (e.currentTarget.className === "AddProduct_selectMoonphase__3pGcR"){
+        if (e.currentTarget.id === "moonphase"){
             setMoonphase(values); 
-            console.log("moonphase");   
+
         }
 
-        if (e.currentTarget.className === "AddProduct_selectZodiac__tIXpT"){
+        if (e.currentTarget.id === "zodiac"){
             setZodiac(values); 
-            console.log("zodiac");   
+
         }
 
     
@@ -76,12 +70,12 @@ const AddProductForm = () => {
 
     const openMoonphaseSelection = ()=>{
         setOpenMoonphase(!openMoonphase);
-        // console.log("open Moonphase selection");
+
     };
 
     const openMoonSelection = ()=>{
         setOpenMoon(!openMoon);
-        // console.log("open Moon selection");
+
     };
 
 
@@ -161,7 +155,7 @@ const AddProductForm = () => {
 
                     <div>
                         <label className={styles.zodiac}>Zodiac 
-                        <select className={styles.selectZodiac} multiple={true} onChange= {currentEventHandler} onClick={openZodiacSelection} style={{display: openZodiac ? "block" : ""}}>
+                        <select className={styles.selectZodiac} id="zodiac" multiple={true} onChange= {currentEventHandler} onClick={openZodiacSelection} style={{display: openZodiac ? "block" : ""}}>
                             <option className={styles.option} value="Aries">Aries| March 21-April 19</option>
                             <option className={styles.option}value="Taurus">Taurus | April 20 - May 20</option>
                             <option className={styles.option}value="Gemini">Gemini | May 21 - June 21</option>
@@ -180,7 +174,7 @@ const AddProductForm = () => {
 
                     <div>
                         <label className={styles.moonphase}>Moonphase 
-                        <select className={styles.selectMoonphase} multiple={true} onChange= {currentEventHandler} onClick={openMoonphaseSelection} style={{display: openMoonphase ? "block" : ""}}>
+                        <select className={styles.selectMoonphase} id="moonphase"multiple={true} onChange= {currentEventHandler} onClick={openMoonphaseSelection} style={{display: openMoonphase ? "block" : ""}}>
                             <option className={styles.option} value="Last Quarter" >Last Quarter</option>
                             <option className={styles.option}value="New Moon">New Moon</option>
                             <option className={styles.option}value="First Quarter">First Quarter</option>
@@ -191,11 +185,19 @@ const AddProductForm = () => {
 
                      <div>
                         <label className={styles.moon}>Moon
-                        <select className={styles.selectMoon}  multiple={true} onChange= {currentEventHandler} onClick={openMoonSelection} style={{display: openMoon ? "block" : ""}}>
-                            <option className={styles.option} value="Snowmoon" >Snowmoon</option>
-                            <option className={styles.option}value="New Moon">New Moon</option>
-                            <option className={styles.option}value="First Quarter">First Quarter</option>
-                            <option className={styles.option}value="Full moon">Full moon</option>
+                        <select className={styles.selectMoon}  id="moon"multiple={true} onChange= {currentEventHandler} onClick={openMoonSelection} style={{display: openMoon ? "block" : ""}}>
+                            <option className={styles.option} value="wolf" >Wolf Moon | Jan 28</option>S
+                            <option className={styles.option}value="snow">Snow Moon | Feb 27</option>
+                            <option className={styles.option}value="worm">Worm Moon | Mar 28</option>
+                            <option className={styles.option}value="pink">Pink Moon | Apr 26</option>
+                            <option className={styles.option}value="flower">Flower Moon | May 26</option>
+                            <option className={styles.option}value="strawberry">Strawberry Moon | Jun 24</option>
+                            <option className={styles.option}value="buck">Buck Moon | Jul 23</option>
+                            <option className={styles.option}value="sturgeon">Sturgeon Moon | Aug 22</option>
+                            <option className={styles.option}value="corn">Corn Moon | Sep 20</option>
+                            <option className={styles.option}value="harvest">Harvest Moon | Oct 20</option>
+                            <option className={styles.option}value="beaver">Beaver Moon | Nov 19</option>
+                            <option className={styles.option}value="cold">Cold Moon | Dec 19</option>
                         </select>
                         </label>    
                     </div>              
