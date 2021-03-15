@@ -1,7 +1,7 @@
 import ProductCard from "../ProductCard/ProductCard";
 import style from "./styles.module.css";
 
-const ProductCardFlex = ({ products }) => (
+const ProductCardGrid = ({ products }) => (
   <div>
     <div className={style.wrapper}>
       {products.map((product) => (
@@ -10,4 +10,4 @@ const ProductCardFlex = ({ products }) => (
     </div>
   </div>
 );
-export default ProductCardFlex;
+export default ProductCardGrid;
