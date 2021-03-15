@@ -7,11 +7,7 @@
 }
 
 .wrapper {
-    position: absolute;
-    top:50%;
-    width: 100%;
-    padding: 0 20px;
-    transform: translateY(-50%);
+
     background-color: antiquewhite;
        
 }
@@ -26,39 +22,45 @@
     margin-right: 4%; 
 }
 
-.selectFields {
-    position:relative;
-    cursor:pointer;
-}
 
-.selectFields select {
-    background: transparent;
-}
-
-
-.inputFields,
-.selectFields{
+.inputFields{
     width: 48%;
 }
 
-.inputFields .input,
-.selectFields .select,
+.inputFields, .input,
 .textarea{
     margin: 10px 0;
     background: transparent;
     border: 0px;
     border-bottom: 2px solid #a5a5a5;
     padding: 10px;
-    color: #c5ecfd;
-    width: 100%; 
+    
 }
 
 .textarea{
     height: 212px;
   }
 
-.select {
+.selectZodiac, .selectMoonphase, .selectMoon {
+    display:none;
     padding: 10px;
     background: transparent;
+<<<<<<< HEAD:client/src/pages/Admin/AddProductForm/style.module.css
     outline:none;
+=======
+    padding: 10px;
+    width: 100%; 
+}
+
+.zodiac, .moonphase, .moon {
+    display: block;
+    padding: 30px;
+    font-size: 1.5rem;
+    
+
+}
+
+.zodiac:hover, .moonphase:hover, .moon:hover{
+    cursor: pointer;
+>>>>>>> admin:client/src/pages/Admin/AddProductForm/AddProduct.module.css
 }

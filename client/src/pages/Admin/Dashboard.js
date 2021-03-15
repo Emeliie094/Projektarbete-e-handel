@@ -1,9 +1,11 @@
 import React from 'react'
+import ProductTable from '../../components/ProductTable/ProductTable';
 
-const Admin = () => {
+
+const Admin = ({products}) => {
     return (
         <div>
-            <h1>Admin</h1>
+            <ProductTable products={products}/>
         </div>
     )
 }
