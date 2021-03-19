@@ -1,6 +1,7 @@
 import style from "./DetailCard.module.css"
 import { useParams } from "react-router-dom";
-import { NavLink } from 'react-router-dom';
+import { useState } from 'react'
+import Popup from "../../../components/PopUpCart/PopUpCart";
 
 
 const DetailCard = ({products})=> {
@@ -8,6 +9,7 @@ const DetailCard = ({products})=> {
     const { id } = useParams();
 
   const product = products.find((product) => product.id == id);
+  const [buttonPopup, setButtonPopup] = useState()
 
     return (
         <div>
@@ -24,10 +26,11 @@ const DetailCard = ({products})=> {
       </div>
       <div className={style.productPriceBtn}>
         <p><span>{product.price}</span>kr</p>
-        <button type="button">buy now</button>
+        <button type="button" onClick={() => setButtonPopup(true)}>buy now</button>
       </div>
     </div>
   </div>
+  <Popup trigger={buttonPopup} setTrigger={setButtonPopup}></Popup>
   </div>
     )
 }

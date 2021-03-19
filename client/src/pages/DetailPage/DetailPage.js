@@ -24,6 +24,7 @@ const DetailsPage = ({ products }) => {
    }}>Go back to all products</button>
         </div>
         </div>
+        
   );
 };
 
