@@ -1,7 +1,14 @@
-const Home = ()=>{
+import Hero from "../../components/Hero/Hero";
+import ProductCarousel from "../../components/ProductCarousel/ProductCarousel";
+
+const Home = ({hero})=>{
    return (
     <div>
-        <h1>Home</h1></div>
+       
+        <Hero hero={hero}/>
+        
+        </div>
+        
    );
 }
 

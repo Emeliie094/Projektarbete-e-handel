@@ -30,12 +30,20 @@ function App() {
 
   const [products, setProducts] = useState([]);
 
+  const hero = [{
+    id: 1,
+    heading: "Full moon in aquarius meditation",
+    info: "Let go of your old beliefs and leave your troubles behind. Powerful full moon coming up.",
+    imgUrl: "https://images.pexels.com/photos/374672/pexels-photo-374672.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
+    linkUrl: "/"
+  }]
+
   return (
     <Router>
       <PageHeader/>
       <Switch>
         <Route path="/" exact>
-          <Home/>
+          <Home hero={hero}/>
         </Route>
         <Route path="/shop">
           <Shop products={products}/>
