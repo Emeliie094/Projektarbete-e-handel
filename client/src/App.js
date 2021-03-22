@@ -17,6 +17,8 @@ import AddProductForm from "./pages/Admin/AddProductForm/AddProductForm.js";
 
 function App() {
 
+  const [products, setProducts] = useState([]);
+
   const url = "http://localhost:5000/api/products"
 
   useEffect(() => {
@@ -28,7 +30,28 @@ function App() {
       });
   }, []);
 
-  const [products, setProducts] = useState([]);
+  const addProduct = (product) => {
+    
+    fetch("http://localhost:5000/api/products", {
+       method: "POST",
+       headers: {
+         "Content-Type": "application/json"
+       },
+       body: JSON.stringify(product) // serialisera "{/"name/": "Pink T-Shirt"...
+     }).then(resp => {
+       if (resp.status == "204") { // No Content
+ 
+         fetch("http://localhost:5000/api/products")
+           .then(resp => resp.json())
+           .then(p => {
+             setProducts(p);
+             //history.push("/admin/products");
+             //location.href = "/admin/products";
+           });
+       }
+     });
+
+ 
 
   return (
     <Router>
