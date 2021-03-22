@@ -2,7 +2,7 @@ import {useState, useEffect} from 'react';
 import styles from './AddProduct.module.css';
 import PreviewProductCard from '../../../components/PreviewProductCard/PreviewProductCard';
 
-const AddProductForm = () => {
+const AddProductForm = ({onAdd}) => {
 
     const [openZodiac,setOpenZodiac]=useState(false);
     const [openMoonphase,setOpenMoonphase]=useState(false);
@@ -33,7 +33,7 @@ const AddProductForm = () => {
 
         console.log(product);
 
-        // onAdd(product); lägg till AddProductForm({onAdd}) och lägg till i App.js
+        onAdd(product);
     }
 
     

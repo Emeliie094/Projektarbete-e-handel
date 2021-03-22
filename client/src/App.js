@@ -21,66 +21,70 @@ function App() {
 
   const url = "http://localhost:5000/api/products"
 
-  useEffect(() => {
+    useEffect(() => {
 
-    fetch(url)
-      .then(resp => resp.json())
-      .then(data => {
-        setProducts(data);
-      });
-  }, []);
+      fetch(url)
+        .then(resp => resp.json())
+        .then(data => {
+          setProducts(data);
+        });
+    }, []);
 
+  
+  //Fungerar men man måste ladda om shop sidan en gång för att få upp den tillagda producten
   const addProduct = (product) => {
     
-    fetch("http://localhost:5000/api/products", {
+    fetch(url, {
        method: "POST",
        headers: {
          "Content-Type": "application/json"
        },
-       body: JSON.stringify(product) // serialisera "{/"name/": "Pink T-Shirt"...
-     }).then(resp => {
+      body: JSON.stringify(product)
+     })
+     .then(resp => {
        if (resp.status == "204") { // No Content
  
-         fetch("http://localhost:5000/api/products")
+         fetch(url)
            .then(resp => resp.json())
            .then(p => {
+             
              setProducts(p);
-             //history.push("/admin/products");
-             //location.href = "/admin/products";
-           });
-       }
+        });
+      }
+    
      });
+    };
 
  
 
-  return (
-    <Router>
-      <PageHeader/>
-      <Switch>
-        <Route path="/" exact>
-          <Home/>
-        </Route>
-        <Route path="/shop">
-          <Shop products={products}/>
-        </Route>
-        <Route path="/products/:id">
-          <DetailPage products={products}/>
-        </Route>
-        <Route path="/checkout">
-          <Checkout/>
-        </Route>
-        <Route path="/admin" exact>
-          <Admin products={products}/>
-        </Route>
-        <Route path="/admin/addproduct">
-          <AddProductForm/>
-        </Route>
-        <Route path="*">
-          <NotFound/>
-        </Route>
-      </Switch>
-    </Router>
-  );
+    return (
+      <Router>
+        <PageHeader/>
+        <Switch>
+          <Route path="/" exact>
+            <Home/>
+          </Route>
+          <Route path="/shop">
+            <Shop products={products}/>
+          </Route>
+          <Route path="/products/:id">
+            <DetailPage products={products}/>
+          </Route>
+          <Route path="/checkout">
+            <Checkout/>
+          </Route>
+          <Route path="/admin" exact>
+            <Admin products={products}/>
+          </Route>
+          <Route path="/admin/addproduct">
+            <AddProductForm onAdd={addProduct}/>
+          </Route>
+          <Route path="*">
+            <NotFound/>
+          </Route>
+        </Switch>
+      </Router>
+    );
 }
 
 export default App;
