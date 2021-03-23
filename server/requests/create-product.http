@@ -1,0 +1,16 @@
+
+POST /api/products HTTP/1.1
+Host: localhost:5000
+Content-Type: application/json
+
+ {
+      
+        "name": "Bergskristall",
+        "price": 120,
+       "description": "Lorem",
+       "imageUrl": "something",
+       "color": "pink",
+        "moonphase": "fullmoon",
+        "moon": "snowmoon",
+        "zodiac": "taurus"
+      }
