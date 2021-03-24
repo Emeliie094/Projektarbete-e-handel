@@ -1,9 +1,9 @@
+import { useEffect, useState } from "react";
 import {
   BrowserRouter as Router,
   Switch,
   Route
 } from "react-router-dom";
-import { useEffect, useState } from "react";
 
 import PageHeader from "./components/PageHeader/PageHeader.js";
 import Home from "./pages/Home/Home.js";
@@ -55,6 +55,28 @@ function App() {
      });
     };
 
+    const deleteProduct = (id) => {
+    
+      fetch(`http://localhost:5000/api/products/${id}`, {
+         method: "DELETE",
+        
+       })
+       .then(resp => {
+         if (resp.status == "204") { // No Content
+   
+           fetch(url)
+             .then(resp => resp.json())
+             .then(p => {
+               
+               setProducts(p);
+          });
+        }
+      
+       });
+      };
+
+  
+
  
 
     return (
@@ -74,7 +96,7 @@ function App() {
             <Checkout/>
           </Route>
           <Route path="/admin" exact>
-            <Admin products={products}/>
+            <Admin products={products} onDelete={deleteProduct}/>
           </Route>
           <Route path="/admin/addproduct">
             <AddProductForm onAdd={addProduct}/>

@@ -1,6 +1,6 @@
 import styles from "./ProductTable.module.css";
 
-function ProductTable({products}) {
+function ProductTable({products, onDelete}) {
     return (
         <div className={styles.wrapper}>
            <table className={styles.table}>
@@ -26,7 +26,7 @@ function ProductTable({products}) {
                           <td>{product.moonphase}</td>
                           <td>{product.zodiac}</td>
                           <td>
-                          <button className={styles.deletebtn}>Delete</button>
+                          <button className={styles.deletebtn} onClick={()=>{onDelete(product.id)}}>Delete</button>
                           <button className={styles.editbtn}>Update</button>
                           </td>
                       </tr>

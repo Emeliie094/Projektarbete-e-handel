@@ -5,6 +5,7 @@
 import express from "express";
 import bodyParser from "body-parser";
 import cors from "cors";
+import { v4 as uuidv4 } from 'uuid'; //For the creation of RFC4122 UUIDs
 
 const app = express();
 
@@ -126,8 +127,6 @@ app.locals.products = [
     }
 ];
 
-app.locals.nextProductId = 11;
-
 //Get all products
 app.get("/api/products", (req, resp) => {
 
@@ -144,7 +143,7 @@ app.post("/api/products", (req, resp) => {
     const {name,price,description,imageUrl,color,moonphase,moon,zodiac} = req.body;
 
     const product =   {
-      id:app.locals.nextProductId++,
+      id:uuidv4(),
       name,
       price,
       description,
@@ -160,6 +159,22 @@ app.post("/api/products", (req, resp) => {
     products.push(product);
 
     resp.status(201).end();
+});
+
+//DELETE product from products
+app.delete("/api/products/:id", (req, resp) => {
+
+  const productId = req.params.id;
+
+  const products = req.app.locals.products;
+  
+  const productIndex = products.findIndex(product => product.id == productId);
+
+  if (productIndex > -1) { 
+      products.splice(productIndex, 1);
+  }
+
+  resp.status(204).end(); // 204 No Content
 });
 
 
