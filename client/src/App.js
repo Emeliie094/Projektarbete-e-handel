@@ -30,6 +30,9 @@ function App() {
 
   const [products, setProducts] = useState([]);
 
+
+  const [cart, setCart] = useState([])
+
   return (
     <Router>
       <PageHeader/>
@@ -38,13 +41,13 @@ function App() {
           <Home/>
         </Route>
         <Route path="/shop">
-          <Shop products={products}/>
+          <Shop products={products} cart={cart} setCart={setCart}/>
         </Route>
         <Route path="/products/:id">
           <DetailPage products={products}/>
         </Route>
         <Route path="/checkout">
-          <Checkout/>
+          <Checkout products={products} cart={cart} setCart={setCart}/>
         </Route>
         <Route path="/admin" exact>
           <Dashboard/>

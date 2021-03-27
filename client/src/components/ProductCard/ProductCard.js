@@ -3,9 +3,26 @@ import style from "./styles.module.css";
 import { useState } from "react";
 import Popup from "../PopUpCart/PopUpCart";
 
-const ProductCard = ({ product }) => {
+const ProductCard = ({ product,cart,setCart }) => {
  
   const [buttonPopup, setButtonPopup] = useState()
+  // const [cart, setCart] = useState([])
+
+  //Staten uppdaterars bara om man trycker på det första
+  //produktkortet..
+  const handleClick = (product)=> {
+    setButtonPopup(true)
+    setCart([...cart, product]);
+  }
+  
+  
+  const addToCart = (product) => {
+    setCart([...cart, product]);
+    setButtonPopup(true)
+  };
+
+
+
 
   return (
     <div className={style.wrapper}>
@@ -26,7 +43,8 @@ const ProductCard = ({ product }) => {
             <div className={style.buy}>
               <button
                 className={style.addToCart}
-                onClick={() => setButtonPopup(true)}
+                // onClick={()=> handleClick()}
+                onClick={() => addToCart(product)}
               >
                 <i
                   className="fas fa-cart-plus fa-2x"

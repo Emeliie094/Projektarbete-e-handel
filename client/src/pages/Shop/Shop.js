@@ -2,7 +2,7 @@ import ProductCardGrid from "../../components/ProductCardGrid/ProductCardGrid.js
 import Popup from "../../components/PopUpCart/PopUpCart"
 import { useState } from "react";
 
-const Shop = ({products})=>{
+const Shop = ({products, cart, setCart})=>{
     
     // const [buttonPopup, setButtonPopup] = useState()
 
@@ -10,8 +10,9 @@ const Shop = ({products})=>{
      <div>
          <h1>Shop</h1>
          <h1>**FILTER**</h1>
+         <button>Go to cart ({cart.length})</button>
          
-        <ProductCardGrid products={products} />
+        <ProductCardGrid products={products} cart={cart} setCart={setCart} />
         {/* <Popup trigger={buttonPopup} setTrigger={setButtonPopup}></Popup> */}
 
          </div>
