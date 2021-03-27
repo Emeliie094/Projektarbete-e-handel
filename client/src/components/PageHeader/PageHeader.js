@@ -2,11 +2,11 @@ import {NavLink, useHistory} from "react-router-dom";
 import {useState} from "react";
 import './PageHeaderStyle.css';
 
-const PageHeader = () => {
+const PageHeader = ({onSearch}) => {
 
     const history = useHistory();
 
-    const [searchTerm, setSearchTerm]=useState("");
+    const [query, setQuery]=useState("");
 
     const handleSubmit = (event)=>{
         event.preventDefault();
@@ -17,7 +17,8 @@ const PageHeader = () => {
             search:'?=${searchTerm}'
         });
 
-        console.log(searchTerm);
+        console.log(query);
+        onSearch(query);
 
     };
 
@@ -69,8 +70,9 @@ return (
             className="search-bar-field"
             type="search" 
             placeholder="search"
-            value={searchTerm}
-            onChange={(e)=> setSearchTerm(e.target.value)} />
+            name="q"
+            value={query}
+            onChange={(e)=> setQuery(e.target.value)} /> 
             <button className="search-bar-btn"><i className="fas fa-search "></i></button>
         </form>
        

@@ -14,10 +14,12 @@ import Admin from "./pages/Admin/Dashboard";
 import NotFound from "./pages/NotFound/NotFound.js";
 import './App.css';
 import AddProductForm from "./pages/Admin/AddProductForm/AddProductForm.js";
+import SearchResult from "./pages/SearchResult/SearchResult.js";
 
 function App() {
 
   const [products, setProducts] = useState([]);
+  const [searchResult, setSearchResult] = useState([]);
 
   const url = "http://localhost:5000/api/products"
 
@@ -66,22 +68,58 @@ function App() {
    
            fetch(url)
              .then(resp => resp.json())
-             .then(p => {
+             .then(data => {
                
-               setProducts(p);
+               setProducts(data);
           });
         }
       
        });
       };
 
-  
+    
 
- 
+    const searchProduct = ((query)=> {
+
+      console.log("App searchProduct:" + query);
+        
+      fetch (`http://localhost:5000/api/products/${query}`)
+        .then(resp => resp.json())
+        .then (result => {
+          //  console.log(result);
+           setSearchResult(result);
+        });
+          
+    });
+
+      //TODO om det finns tid...
+      // const editProduct = (id, editedProduct) => {
+
+      //   fetch (`http://localhost:5000/api/products/${id}`, {
+      //     method: "PATCH",
+      //     headers: {
+      //       "Content-Type": "application/json"
+      //     },
+      //    body: JSON.stringify(editedProduct)
+      //   })
+      //   .then(resp => {
+      //     if (resp.status == "204") { // No Content
+    
+      //       fetch(url)
+      //         .then(resp => resp.json())
+      //         .then(p => {
+                
+      //           setProducts(p);
+      //      });
+      //    }
+       
+      //   });
+
+      // };
 
     return (
       <Router>
-        <PageHeader/>
+        <PageHeader  onSearch={searchProduct}/>
         <Switch>
           <Route path="/" exact>
             <Home/>
@@ -101,6 +139,9 @@ function App() {
           <Route path="/admin/addproduct">
             <AddProductForm onAdd={addProduct}/>
           </Route>
+          <Route path="/search">
+            <SearchResult searchResult={searchResult}/>
+          </Route>
           <Route path="*">
             <NotFound/>
           </Route>
@@ -110,3 +151,37 @@ function App() {
 }
 
 export default App;
+
+
+//Exempelkod search
+
+// const products =[{},{}]
+// const [searchTerm, setSearcTerm] =useState("");
+
+// return (
+// <div>
+//   <input
+//   type="text"
+//   placeholder="search"
+//   onChange={(event) => {setSearchTerm(event.target.value);
+//   }}
+//   />
+
+//   {products.filter((val) => {
+
+//     if (searchTerm == ""){
+//       return val
+//     } else if (val.name.toLowerCase().includes(searchTerm.toLowerCase())){
+//       return val
+//     }
+
+//   }).map((val,key)=> {
+//     return (
+//       <div>
+//         <p>{val.name}</p>
+//       </div>
+//     )
+//   })}
+// </div>
+// )
+
