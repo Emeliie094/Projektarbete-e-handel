@@ -54,6 +54,9 @@ p {
   max-height: 98px;
   padding: 20px;
   float: left;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  font-weight: 500;
 }
 .buy {
   float: right;

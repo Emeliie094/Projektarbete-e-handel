@@ -4,11 +4,15 @@ import "./popUp.css";
 
 function PopUpCart(props) {
   const history = useHistory();
+  
   function handleClick() {
-    history.push("/checkout");
+    history.push({
+      pathname: '/checkout'
+    });
   }
   return props.trigger ? (
     <div className="popup">
+      <div classNAme="blur"></div>
       <div className="popup-inner">
         <h3>Produkten har lagts till i din varukorg</h3>
         <div>

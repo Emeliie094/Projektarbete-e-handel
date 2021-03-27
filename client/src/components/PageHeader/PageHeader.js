@@ -2,7 +2,7 @@ import {NavLink, useHistory} from "react-router-dom";
 import {useState} from "react";
 import './PageHeaderStyle.css';
 
-const PageHeader = () => {
+const PageHeader = ({cart, setCart}) => {
 
     const history = useHistory();
 
@@ -38,6 +38,16 @@ const PageHeader = () => {
         setOpenSearch(!openSearch);
     }; 
 
+    const removeFromCart = (productToRemove) => {
+        setCart(cart.filter((product) => product !== productToRemove));
+      };
+
+      function handleClick() {
+        history.push({
+            pathname: '/checkout'
+        });
+      }
+
 return (
     <header>
         <nav>
@@ -58,12 +68,20 @@ return (
         <div className="shopping-nav" style={{transform: openCart ? "translateX(0px)" : ""}}>
         
             <ul className="shopping-items">Shopping cart items</ul>
-            <li>Kristall 1, 450kr<button>Remove</button></li>
-            <li>Kristall 2, 600kr<button>Remove</button></li>
-            <li>Kristall 3, 900kr<button>Remove</button></li>
+
+
+            <hr></hr>
+            {cart.map((product) => (
+                <div>
+            <li className="li">{product.name}, {product.price}kr</li>
+            <button className="removeBtn" onClick={() => removeFromCart(product)}>Remove</button>
+            </div>
+            ))}
             <li>Sum:</li>
-            <button>Proceed to payment</button>
+            <button className="goToCartBtn" onClick={handleClick}>Proceed to payment</button>
         </div>
+
+        
         <form onSubmit={handleSubmit}className="search-bar" style={{transform: openSearch ? "translateX(0px)" : ""}}>
             <input 
             className="search-bar-field"
@@ -76,7 +94,7 @@ return (
        
         <i onClick={openMenuIcon} className="fas fa-bars burger"></i>
         <i onClick={openSearchBar}className="fas fa-search search"></i>
-        <i onClick={openCartIcon} className="fas fa-shopping-bag shop-bag"></i>
+        <i onClick={openCartIcon} className="fas fa-shopping-bag shop-bag">{` ${cart.length} `}</i>
         </nav>
         
     </header>

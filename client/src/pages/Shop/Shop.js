@@ -10,8 +10,7 @@ const Shop = ({products, cart, setCart})=>{
      <div>
          <h1>Shop</h1>
          <h1>**FILTER**</h1>
-         <button>Go to cart ({cart.length})</button>
-         
+
         <ProductCardGrid products={products} cart={cart} setCart={setCart} />
         {/* <Popup trigger={buttonPopup} setTrigger={setButtonPopup}></Popup> */}
 

@@ -35,7 +35,7 @@ function App() {
 
   return (
     <Router>
-      <PageHeader/>
+      <PageHeader cart={cart} setCart={setCart}/>
       <Switch>
         <Route path="/" exact>
           <Home/>
@@ -44,7 +44,7 @@ function App() {
           <Shop products={products} cart={cart} setCart={setCart}/>
         </Route>
         <Route path="/products/:id">
-          <DetailPage products={products}/>
+          <DetailPage products={products} cart={cart} setCart={setCart}/>
         </Route>
         <Route path="/checkout">
           <Checkout products={products} cart={cart} setCart={setCart}/>
