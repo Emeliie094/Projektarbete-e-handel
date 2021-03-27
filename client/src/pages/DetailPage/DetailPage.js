@@ -29,14 +29,3 @@ const DetailsPage = ({  products, setButtonPopup,cart,setCart  }) => {
 };
 
 export default DetailsPage;
-
-    // <div>
-    //   <div class="product-container">
-    //     <div class="img-container">
-    //       <img src={product.imageUrl} alt="{product.name}" />
-    //     </div>
-    //     <h3>{product.name}</h3>
-    //     <h4>{product.price} KR</h4>
-    //     <p>{product.description}</p>
-    //   </div>
-    // </div>

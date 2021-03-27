@@ -4,10 +4,10 @@ import "./popUp.css";
 
 function PopUpCart(props) {
   const history = useHistory();
-  
+
   function handleClick() {
     history.push({
-      pathname: '/checkout'
+      pathname: "/checkout",
     });
   }
   return props.trigger ? (
