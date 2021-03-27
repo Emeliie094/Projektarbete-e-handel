@@ -22,18 +22,18 @@ app.locals.products = [
         description: "Det här är verkligen kristallen som du kan använda precis hur du vill. Ha den med dig under dagen för att boosta dig själv med kärlek, ge bort den som present, inred med den för lite extra good vibes, ta ett avkopplande bad tillsammans med den.. ja du hör ju själv, bara din fantasi sätter gränser för hur du kan använda din Rosenkvarts. Let the feelgood begin!",
         imageUrl: "https://images.pexels.com/photos/4040586/pexels-photo-4040586.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
         color: "rosa",
-        moonphase: "☾",
+        moonphase: "fullmoon",
         moon: "snowmoon",
         zodiac: "♉"
       },
       {
         id: 2,
-        name: "KALCIT TOUCHSTONE",
+        name: "kalcit",
         price: "120",
         description: "Vår Dream Big Crystal! Den Gröna Kalciten påminner oss om att inga drömmar är för stora och att inget är omöjligt! Det här är kristallen vi alltid har med oss när vi vill manifestera in saker i vårat liv. Den sägs också kunna snappa upp bilderna vi målar upp i vårt huvud när vi dagdrömmer och skickar dem vidare till universum. Grön Kalcit är kort och gott en direktlänk med universum, eeh, ja tack! ",
         imageUrl: "https://images.pexels.com/photos/4040606/pexels-photo-4040606.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
         color: "rosa",
-        moonphase: "☾",
+        moonphase: "newmoon",
         moon: "harvestmoon",
         zodiac: "♉"
       },
@@ -44,9 +44,9 @@ app.locals.products = [
         description: "Blå Kalcit är en av våra (och era) absoluta favoriter! Det finns ingen bättre godnatt kristall än denna. Vi får varje vecka historier som berättar hur ni blivit hjälpt med sömnen av denna magiska kristall!",
         imageUrl: "https://images.pexels.com/photos/6474101/pexels-photo-6474101.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
         color: "rosa",
-        moonphase: "☾",
+        moonphase: "newmoon",
         moon: "strawberrymoon",
-        zodiac: "♉"
+        zodiac: "taurus"
       },
       {
         id: 4,
@@ -55,9 +55,9 @@ app.locals.products = [
         description: "Känner du att du behöver hitta balans i vardagen, i en relation eller inom dig själv? I så fall har du dragits till helt rätt kristall! Ny Jade står för just balans och sägs hjälpa oss att se, förstå och förändra det som behövs för att vi ska hitta balans i livet. Balance is the key!",
         imageUrl: "https://images.pexels.com/photos/2942849/pexels-photo-2942849.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
         color: "rosa",
-        moonphase: "☾",
-        moon: "snowmoon",
-        zodiac: "♉"
+        moonphase: "fullmoon",
+        moon: "strawberrymoon",
+        zodiac: "capricorn"
       },
       {
         id: 5,
@@ -137,6 +137,31 @@ app.get("/api/products", (req, resp) => {
     resp.json(products);
 });
 
+//search products from user query
+app.get("/api/products/:query", (req,resp) => {
+
+  const products = req.app.locals.products;
+  const searchTerm = req.params.query.toLocaleLowerCase();
+  console.log(searchTerm);
+
+  const product = products.filter((product) => {
+    return (
+      product.name.toLocaleLowerCase().includes(searchTerm)
+    || product.price.toLocaleLowerCase().includes(searchTerm)    
+    || product.color.toLocaleLowerCase().includes(searchTerm)
+    || product.moonphase.toLocaleLowerCase().includes(searchTerm)
+    || product.moon.toLocaleLowerCase().includes(searchTerm)
+    || product.zodiac.toLocaleLowerCase().includes(searchTerm)
+
+    );
+  }
+    
+  );
+    
+      resp.json(product);
+});
+
+
 //POST product to products
 app.post("/api/products", (req, resp) => {
 
@@ -176,6 +201,11 @@ app.delete("/api/products/:id", (req, resp) => {
 
   resp.status(204).end(); // 204 No Content
 });
+
+// //PATCH edited products
+// app.patch("/api/products/:id", (req,resp)) => {
+
+// });
 
 
 
