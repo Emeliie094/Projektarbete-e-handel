@@ -62,8 +62,9 @@ return (
                 <NavLink className="nav-link"  exact to = {"/shop"}>Shop</NavLink>
             </li>
             <li>
-                <NavLink className="nav-link"  exact to = {"/checkout"}>Checkout</NavLink>
+                <NavLink className="nav-link"  exact to = {"/checkout"}>Checkout{` • ${cart.length} `}</NavLink>
             </li>
+            
         </ul>
         <div className="shopping-nav" style={{transform: openCart ? "translateX(0px)" : ""}}>
         
