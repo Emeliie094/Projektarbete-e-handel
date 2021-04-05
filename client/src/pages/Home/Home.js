@@ -1,7 +1,17 @@
-const Home = ()=>{
+import Hero from "../../components/Hero/Hero";
+import Moonphase from "../../components/Moonphase/Moonphase";
+import ProductCarousel from "../../components/ProductCarousel/ProductCarousel";
+
+const Home = ({hero, products})=>{
    return (
     <div>
-        <h1>Home</h1></div>
+         <Moonphase products={products}/>
+         <Hero hero={hero}/>
+         {/* <ProductCarousel/> */}
+        
+        
+        </div>
+        
    );
 }
 
