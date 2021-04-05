@@ -79,8 +79,6 @@ function App() {
        });
       };
 
-    
-
     const searchProduct = ((query)=> {
 
       console.log("App searchProduct:" + query);
@@ -88,14 +86,10 @@ function App() {
       fetch (`http://localhost:5000/api/products/${query}`)
         .then(resp => resp.json())
         .then (result => {
-          //  console.log(result);
            setSearchResult(result);
         });
           
     });
-
-      //TODO om det finns tid...
-      // const editProduct = (id, editedProduct) => {
 
   const hero = [{
     id: 1,
@@ -117,7 +111,7 @@ function App() {
 
   return (
     <Router>
-      <PageHeader removeFromCart={removeFromCart} cart={cart} />
+      <PageHeader removeFromCart={removeFromCart} cart={cart} onSearch={searchProduct}/>
       <Switch>
         <Route path="/" exact>
           <Home hero={hero} products={products}/>
@@ -140,12 +134,14 @@ function App() {
           <Checkout removeFromCart={removeFromCart} cart={cart} />
         </Route>
         <Route path="/admin" exact>
-          <Admin products={products}/>
-          {/* <Dashboard /> */}
+          <Admin products={products} onDelete={deleteProduct} onSearch={searchProduct}/>
         </Route>
         <Route path="/admin/addproduct">
-          <AddProductForm />
+          <AddProductForm onAdd={addProduct} />
         </Route>
+        <Route path="/search">
+            <SearchResult searchResult={searchResult}/>
+          </Route>
         <Route path="*">
           <NotFound />
         </Route>
@@ -155,37 +151,4 @@ function App() {
 }
 
 export default App;
-
-
-//Exempelkod search
-
-// const products =[{},{}]
-// const [searchTerm, setSearcTerm] =useState("");
-
-// return (
-// <div>
-//   <input
-//   type="text"
-//   placeholder="search"
-//   onChange={(event) => {setSearchTerm(event.target.value);
-//   }}
-//   />
-
-//   {products.filter((val) => {
-
-//     if (searchTerm == ""){
-//       return val
-//     } else if (val.name.toLowerCase().includes(searchTerm.toLowerCase())){
-//       return val
-//     }
-
-//   }).map((val,key)=> {
-//     return (
-//       <div>
-//         <p>{val.name}</p>
-//       </div>
-//     )
-//   })}
-// </div>
-// )
 

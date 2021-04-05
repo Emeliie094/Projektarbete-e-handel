@@ -1,34 +1,28 @@
 import { NavLink, useHistory } from "react-router-dom";
 import { useState } from "react";
 import "./PageHeaderStyle.css";
+import logo from './logo.png';
 
 const PageHeader = ({ onSearch, removeFromCart, cart }) => {
   const total = [];
   const history = useHistory();
-
-  const [searchTerm, setSearchTerm] = useState("");
 
     const [query, setQuery]=useState("");
     const [openMenu, setOpenMenu] = useState(false);
     const [openCart, setOpenCart] = useState(false);
     const [openSearch, setOpenSearch] = useState(false);
 
-  const handleSubmit = (event) => {
+  const handleSearch = (event) => {
     event.preventDefault();
 
     history.push({
       pathname: "/search",
-      search: "?=${searchTerm}",
+      search: "?=${query}",
     });
+    onSearch(query);
 
-    console.log(searchTerm);
   };
-
-
-        console.log(query);
-        onSearch(query);
-
-        
+     
   const openMenuIcon = () => {
     setOpenMenu(!openMenu);
   };
@@ -52,7 +46,7 @@ const PageHeader = ({ onSearch, removeFromCart, cart }) => {
         <div className="logo">
           <img
             className="nav-logo"
-            src="https://via.placeholder.com/50x50.png?text=Logo"
+            src= {logo}
             alt="logo"
           />
         </div>
@@ -106,7 +100,7 @@ const PageHeader = ({ onSearch, removeFromCart, cart }) => {
         </div>
 
         <form
-          onSubmit={handleSubmit}
+          onSubmit={handleSearch}
           className="search-bar"
           style={{ transform: openSearch ? "translateX(0px)" : "" }}
         >
@@ -118,12 +112,6 @@ const PageHeader = ({ onSearch, removeFromCart, cart }) => {
             value={query}
             onChange={(e)=> setQuery(e.target.value)} /> 
             <button className="search-bar-btn"><i className="fas fa-search "></i></button>
-            {/* value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-          />
-          <button className="search-bar-btn">
-            <i className="fas fa-search "></i>
-          </button> */}
         </form>
 
         <i onClick={openMenuIcon} className="fas fa-bars burger"></i>

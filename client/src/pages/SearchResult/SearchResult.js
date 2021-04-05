@@ -3,8 +3,6 @@ import ProductCardGrid from '../../components/ProductCardGrid/ProductCardGrid';
 
 const SearchResult = ({searchResult})=>{
 
-    console.log(searchResult);
-
     return (
         <div>
             
