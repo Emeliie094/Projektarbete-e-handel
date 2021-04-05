@@ -43,7 +43,7 @@ function App() {
       <PageHeader/>
       <Switch>
         <Route path="/" exact>
-          <Home hero={hero}/>
+          <Home hero={hero} products={products}/>
         </Route>
         <Route path="/shop">
           <Shop products={products}/>
