@@ -1,25 +1,27 @@
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { useEffect, useState } from "react";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route
-} from "react-router-dom";
 
 import PageHeader from "./components/PageHeader/PageHeader.js";
 import Home from "./pages/Home/Home.js";
 import Shop from "./pages/Shop/Shop.js";
-import DetailPage from "./pages/DetailPage/DetailPage.js"
+import DetailPage from "./pages/DetailPage/DetailPage.js";
 import Checkout from "./pages/Checkout/Checkout.js";
 import Admin from "./pages/Admin/Dashboard";
 import NotFound from "./pages/NotFound/NotFound.js";
-import './App.css';
+import "./App.css";
 import AddProductForm from "./pages/Admin/AddProductForm/AddProductForm.js";
 import SearchResult from "./pages/SearchResult/SearchResult.js";
+import Popup from "../src/components/PopUpCart/PopUpCart";
 
 function App() {
-
   const [products, setProducts] = useState([]);
+
   const [searchResult, setSearchResult] = useState([]);
+
+  const [cart, setCart] = useState([]);
+
+  const [buttonPopup, setButtonPopup] = useState();
+
 
   const url = "http://localhost:5000/api/products"
 
@@ -103,30 +105,49 @@ function App() {
     linkUrl: "/"
   }]
 
+
+  const addToCart = (products) => {
+    setCart([...cart, products]);
+    setButtonPopup(true);
+  };
+
+  const removeFromCart = (productToRemove) => {
+    setCart(cart.filter((product) => product !== productToRemove));
+  };
+
   return (
     <Router>
-      <PageHeader/>
+      <PageHeader removeFromCart={removeFromCart} cart={cart} />
       <Switch>
         <Route path="/" exact>
           <Home hero={hero} products={products}/>
         </Route>
         <Route path="/shop">
-          <Shop products={products}/>
+          <Shop
+            products={products}
+            addToCart={addToCart}
+            Popup={<Popup trigger={buttonPopup} setTrigger={setButtonPopup} />}
+          />
         </Route>
         <Route path="/products/:id">
-          <DetailPage products={products}/>
+          <DetailPage
+            products={products}
+            addToCart={addToCart}
+            Popup={<Popup trigger={buttonPopup} setTrigger={setButtonPopup} />}
+          />
         </Route>
         <Route path="/checkout">
-          <Checkout/>
+          <Checkout removeFromCart={removeFromCart} cart={cart} />
         </Route>
         <Route path="/admin" exact>
           <Admin products={products}/>
+          {/* <Dashboard /> */}
         </Route>
         <Route path="/admin/addproduct">
-          <AddProductForm/>
+          <AddProductForm />
         </Route>
         <Route path="*">
-          <NotFound/>
+          <NotFound />
         </Route>
       </Switch>
     </Router>
