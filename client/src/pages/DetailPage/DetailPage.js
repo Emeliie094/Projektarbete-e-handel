@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom';
 import ProductCarousel from "../../components/ProductCarousel/ProductCarousel"
 import { useHistory } from 'react-router-dom';
 
-const DetailsPage = ({  products, setButtonPopup,cart,setCart  }) => {
+const DetailsPage = ({  products, addToCart, Popup  }) => {
   const history = useHistory()
   
   return (
@@ -15,7 +15,7 @@ const DetailsPage = ({  products, setButtonPopup,cart,setCart  }) => {
         history.goBack()
    }}>Go back to all products</button>
         </div>
-        <DetailCard products={products} setButtonPopup={setButtonPopup} cart={cart} setCart={setCart}/>
+        <DetailCard products={products} addToCart={addToCart} Popup={Popup}/>
         <h1 className={style.h1}>You might also like...</h1>
         <ProductCarousel products={products}/>
         <div className={style.container}>

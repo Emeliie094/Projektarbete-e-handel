@@ -1,15 +1,8 @@
 import { Link } from "react-router-dom";
 import style from "./styles.module.css";
 import { useState } from "react";
-import Popup from "../PopUpCart/PopUpCart";
 
-const ProductCard = ({ product, cart, setCart }) => {
-  const [buttonPopup, setButtonPopup] = useState();
-
-  const addToCart = (product) => {
-    setCart([...cart, product]);
-    setButtonPopup(true);
-  };
+const ProductCard = ({ product, addToCart, Popup }) => {
 
   return (
     <div className={style.wrapper}>
@@ -30,7 +23,7 @@ const ProductCard = ({ product, cart, setCart }) => {
             <div className={style.buy}>
               <button
                 className={style.addToCart}
-                onClick={() => addToCart(product)}
+                 onClick={() => addToCart(product)}
               >
                 <i
                   className="fas fa-cart-plus fa-2x"
@@ -56,7 +49,7 @@ const ProductCard = ({ product, cart, setCart }) => {
           </div>
         </div>
       </div>
-      <Popup trigger={buttonPopup} setTrigger={setButtonPopup}></Popup>
+      {Popup}
     </div>
   );
 };

@@ -16,7 +16,7 @@ const ProductCarousel = ({ products }) => (
   <div className={style.container}>
     <Slider {...settings}>
       {products.map((product) => (
-        <ProductCard product={product}/>
+        <ProductCard key={product.id} product={product}/>
       ))}
     </Slider>
   </div>

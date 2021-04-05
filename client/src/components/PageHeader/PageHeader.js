@@ -2,7 +2,8 @@ import { NavLink, useHistory } from "react-router-dom";
 import { useState } from "react";
 import "./PageHeaderStyle.css";
 
-const PageHeader = ({ cart, setCart }) => {
+const PageHeader = ({ removeFromCart, cart }) => {
+  const total = [];
   const history = useHistory();
 
   const [searchTerm, setSearchTerm] = useState("");
@@ -31,10 +32,6 @@ const PageHeader = ({ cart, setCart }) => {
 
   const openSearchBar = () => {
     setOpenSearch(!openSearch);
-  };
-
-  const removeFromCart = (productToRemove) => {
-    setCart(cart.filter((product) => product !== productToRemove));
   };
 
   function handleClick() {
@@ -81,8 +78,9 @@ const PageHeader = ({ cart, setCart }) => {
 
           <hr></hr>
           {cart.map((product) => (
-            <div>
+            <div key={product.id}>
               <img src={product.imageUrl} />
+              {total.push(Number(product.price))}
               <li className="li">
                 {" "}
                 {product.name}, {product.price}kr
@@ -90,12 +88,12 @@ const PageHeader = ({ cart, setCart }) => {
               <button
                 className="removeBtn"
                 onClick={() => removeFromCart(product)}
-              >
+                >
                 Remove
               </button>
             </div>
           ))}
-          <li>Sum:</li>
+          <li>Sum: {total.reduce((a, b) => a + b, 0)} KR</li>
           <button className="goToCartBtn" onClick={handleClick}>
             Proceed to payment
           </button>

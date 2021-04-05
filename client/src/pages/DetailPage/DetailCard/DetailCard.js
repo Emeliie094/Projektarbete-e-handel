@@ -3,16 +3,11 @@ import { useParams } from "react-router-dom";
 import { useState } from "react";
 import Popup from "../../../components/PopUpCart/PopUpCart";
 
-const DetailCard = ({ products, cart, setCart }) => {
+const DetailCard = ({ products, addToCart, Popup }) => {
   const { id } = useParams();
 
   const product = products.find((product) => product.id == id);
-  const [buttonPopup, setButtonPopup] = useState();
-
-  const addToCart = (product) => {
-    setCart([...cart, product]);
-    setButtonPopup(true);
-  };
+  
 
   return (
     <div>
@@ -36,7 +31,7 @@ const DetailCard = ({ products, cart, setCart }) => {
           </div>
         </div>
       </div>
-      <Popup trigger={buttonPopup} setTrigger={setButtonPopup}></Popup>
+      {Popup}
     </div>
   );
 };
