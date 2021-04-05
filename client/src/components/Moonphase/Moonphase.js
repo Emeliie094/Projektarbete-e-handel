@@ -29,13 +29,13 @@ let url=`https://api.farmsense.net/v1/moonphases/?d=${timestamp}`;
         .then (data => {
             let phase = translateMoonPhase(data[0].Phase);
             let image = asignMoonPhaseImg(phase);
-            let productsWithSameMoonphase = filterRelatedProducts(phase,data[0].Moon[0],products);
+            // let productsWithSameMoonphase = filterRelatedProducts(phase,data[0].Moon[0],products);
 
             
             setMoonphase(phase);
             setMoonImg(image);
             setMoon(data[0].Moon[0]);
-            setRelatedProducts(productsWithSameMoonphase);
+            // setRelatedProducts(productsWithSameMoonphase);
 
         });
         
