@@ -2,11 +2,12 @@ import Hero from "../../components/Hero/Hero";
 import Moonphase from "../../components/Moonphase/Moonphase";
 import ProductCarousel from "../../components/ProductCarousel/ProductCarousel";
 
-const Home = ({hero, products})=>{
+const Home = ({filterHero, products, hero})=>{
+
    return (
     <div>
-         <Moonphase products={products}/>
-         <Hero hero={hero}/>
+         <Moonphase products={products} filterHero={filterHero}/>
+         {/* <Hero hero={hero}/> */}
          {/* <ProductCarousel/> */}
         
         

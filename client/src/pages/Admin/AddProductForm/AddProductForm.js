@@ -1,4 +1,4 @@
-import {useState, useEffect} from 'react';
+import {useState} from 'react';
 import styles from './AddProduct.module.css';
 import PreviewProductCard from '../../../components/PreviewProductCard/PreviewProductCard';
 
@@ -40,9 +40,6 @@ const AddProductForm = ({onAdd}) => {
     const currentEventHandler = (e) => {
 
         let values = Array.from(e.currentTarget.selectedOptions, option => option.value);
-
-
-        console.log(e.currentTarget.id);
 
         if (e.currentTarget.id === "moon"){
             setMoon(values);
@@ -176,7 +173,7 @@ const AddProductForm = ({onAdd}) => {
                         <label className={styles.moonphase}>Moonphase 
                         <select className={styles.selectMoonphase} id="moonphase"multiple={true} onChange= {currentEventHandler} onClick={openMoonphaseSelection} style={{display: openMoonphase ? "block" : ""}}>
                             <option className={styles.option} value="Last Quarter" >Last Quarter</option>
-                            <option className={styles.option}value="New Moon">New Moon</option>
+                            <option className={styles.option}value="Black Moon">New Moon</option>
                             <option className={styles.option}value="First Quarter">First Quarter</option>
                             <option className={styles.option}value="Full moon">Full moon</option>
                         </select>
@@ -186,18 +183,18 @@ const AddProductForm = ({onAdd}) => {
                      <div>
                         <label className={styles.moon}>Moon
                         <select className={styles.selectMoon}  id="moon"multiple={true} onChange= {currentEventHandler} onClick={openMoonSelection} style={{display: openMoon ? "block" : ""}}>
-                            <option className={styles.option} value="wolf" >Wolf Moon | Jan 28</option>S
-                            <option className={styles.option}value="snow">Snow Moon | Feb 27</option>
-                            <option className={styles.option}value="worm">Worm Moon | Mar 28</option>
-                            <option className={styles.option}value="pink">Pink Moon | Apr 26</option>
-                            <option className={styles.option}value="flower">Flower Moon | May 26</option>
-                            <option className={styles.option}value="strawberry">Strawberry Moon | Jun 24</option>
-                            <option className={styles.option}value="buck">Buck Moon | Jul 23</option>
-                            <option className={styles.option}value="sturgeon">Sturgeon Moon | Aug 22</option>
-                            <option className={styles.option}value="corn">Corn Moon | Sep 20</option>
-                            <option className={styles.option}value="harvest">Harvest Moon | Oct 20</option>
-                            <option className={styles.option}value="beaver">Beaver Moon | Nov 19</option>
-                            <option className={styles.option}value="cold">Cold Moon | Dec 19</option>
+                            <option className={styles.option} value="Wolf Moon" >Wolf Moon | Jan 28</option>S
+                            <option className={styles.option}value="Snow Moon">Snow Moon | Feb 27</option>
+                            <option className={styles.option}value="Worm Moon">Worm Moon | Mar 28</option>
+                            <option className={styles.option}value="Pink Moon">Pink Moon | Apr 26</option>
+                            <option className={styles.option}value="Flower Moon">Flower Moon | May 26</option>
+                            <option className={styles.option}value="Strawberry Moon">Strawberry Moon | Jun 24</option>
+                            <option className={styles.option}value="Buck Moon">Buck Moon | Jul 23</option>
+                            <option className={styles.option}value="Sturgeon Moon">Sturgeon Moon | Aug 22</option>
+                            <option className={styles.option}value="Corn Moon">Corn Moon | Sep 20</option>
+                            <option className={styles.option}value="Harvest Moon">Harvest Moon | Oct 20</option>
+                            <option className={styles.option}value="Beaver Moon">Beaver Moon | Nov 19</option>
+                            <option className={styles.option}value="Cold Moon">Cold Moon | Dec 19</option>
                         </select>
                         </label>    
                     </div>              

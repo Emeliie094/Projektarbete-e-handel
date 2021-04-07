@@ -51,11 +51,3 @@ export const asignMoonPhaseImg = (moonphase) =>{
 
     return moonPhaseImg;
 };
-
-// export const filterRelatedProducts=(moonphase,moon,products)=>{
-//     console.log(moonphase);
-//     console.log(moon);
-//     console.log(products[0].moon);
-//     console.log(products[0].moonphase);
-// };
-
