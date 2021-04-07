@@ -1,22 +1,31 @@
 import React from 'react'
-import {useState,useEffect} from 'react';
-import {translateMoonPhase, asignMoonPhaseImg, filterRelatedProducts} from './script/Moonphase.script';
-import {Month,Moon_phase,Moon} from './phases';
+import {useState, useEffect} from 'react';
+import {translateMoonPhase, asignMoonPhaseImg} from './script/Moonphase.script';
+import {Month,Moon_phase,Moon, Full_moon, Black_moon, Last_quarter, First_quarter} from './phases';
 import styles from "./Moonphase.module.css";
 
 
-function Moonphase({products,filterHero}) {
+function Moonphase({currentMoon,filterHero,relatedProducts}) {
 
- //Calculates UNIX timestamp for farmsense API 
-let dateTime = new Date().getTime();
+    const [moonphase,setMoonphase]=useState("");
+    const [moon,setMoon]=useState("");
+    const [moonImg,setMoonImg]=useState("");
 
-let timestamp = Math.floor(dateTime / 1000);
+    useEffect(() => {
+        currentMoon.map(element => {
+            let phase = translateMoonPhase(element.Phase);
+            let image = asignMoonPhaseImg(phase);
+            let moonName = element.Moon[0];  
+            setMoonphase(phase);
+            setMoonImg(image);
+            setMoon(moonName);
+            filterHero(phase);  
+            relatedProducts("fullmoon");   
+        })
+      
+    }, [currentMoon]);
 
-
-const [moonphase,setMoonphase]=useState("");
-const [moon,setMoon]=useState("");
-const [moonImg,setMoonImg]=useState("");
-
+   
 
 const handleCurrentUserInput = (e) => {
     
@@ -32,6 +41,8 @@ const handleCurrentUserInput = (e) => {
     setMoonphase(phase);
     setMoonImg(image);
     filterHero(phase);
+    relatedProducts("fullmoon");
+
     }
 
     if (selectedValueId === Moon){
@@ -40,6 +51,7 @@ const handleCurrentUserInput = (e) => {
         setMoon(userInput);
         setMoonphase(phase);
         setMoonImg(image);
+        
     }
     
         if (selectedValueId === Month){
@@ -49,36 +61,15 @@ const handleCurrentUserInput = (e) => {
             setMoonphase(phase);
             setMoonImg(image);
         }
+
 }
 
-
-
-
-useEffect (()=>{
-   
-let url=`https://api.farmsense.net/v1/moonphases/?d=${timestamp}`;    
-
-    fetch (url)
-        .then (resp => resp.json())
-        .then (data => {
-            let phase = translateMoonPhase(data[0].Phase);
-            let image = asignMoonPhaseImg(phase);
-            let currentMoon = data[0].Moon[0];
-            
-            setMoonphase(phase);
-            setMoonImg(image);
-            setMoon(currentMoon);
-            filterHero(phase);
-    
-
-        });
-        
-},[]);
 
     return (
         <div>
             <div className={styles.wrapper}>
                 <div className={styles.moonImg}>
+                   
                     <img src={moonImg} alt={moonphase}></img>
                 </div>
                 <div className={styles.moonText}>
@@ -92,11 +83,11 @@ let url=`https://api.farmsense.net/v1/moonphases/?d=${timestamp}`;
                     
                     <label to={Moon_phase} >Moonphase 
                     <select className={styles.selectBox} id={Moon_phase} onChange={handleCurrentUserInput}>
-                        <option value="null"></option>
-                        <option id={Moon_phase} value="Full Moon">Full Moon</option>
-                        <option id={Moon_phase} value="Black Moon">New Moon</option>
-                        <option id={Moon_phase} value="Last Quarter">Last Quarter Moon</option>
-                        <option id={Moon_phase} value="First Quarter">First Quarter Moon</option>
+                        <option>--</option>
+                        <option id={Moon_phase} value={Full_moon}>Full Moon</option>
+                        <option id={Moon_phase} value={Black_moon}>New Moon</option>
+                        <option id={Moon_phase} value={Last_quarter}>Last Quarter Moon</option>
+                        <option id={Moon_phase} value={First_quarter}>First Quarter Moon</option>
                     </select>
                     </label>
                     <label to={Moon}>Pick moon by moon name 
@@ -132,7 +123,7 @@ let url=`https://api.farmsense.net/v1/moonphases/?d=${timestamp}`;
                 </form>
             </div>
         </div>
-    )
+    );
 }
 
 export default Moonphase;

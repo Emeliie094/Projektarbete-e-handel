@@ -15,13 +15,13 @@ import Popup from "../src/components/PopUpCart/PopUpCart";
 
 function App() {
   const [products, setProducts] = useState([]);
-  const [heros, setHeros] = useState([]);
+  const [heros,setHeros]=useState([]);
   const [filteredHero,setFilteredHero]=useState([]);
+  
+  const [currentMoon,setCurrentMoon] = useState([]);
 
   const [searchResult, setSearchResult] = useState([]);
-
   const [cart, setCart] = useState([]);
-
   const [buttonPopup, setButtonPopup] = useState();
 
 //Fetch products
@@ -29,6 +29,7 @@ function App() {
   const url_heros = "http://localhost:5000/api/heros"
 
     useEffect(() => {
+      console.log("fetch backend");
 
       fetch(url_products)
         .then(resp => resp.json())
@@ -41,6 +42,24 @@ function App() {
           setHeros(data);
         });
     }, []);
+
+//Fetch moon API data with use of UNIX timestamp
+
+ let dateTime = new Date().getTime();
+ let timestamp = Math.floor(dateTime / 1000);
+
+useEffect (()=>{
+  console.log("fetch API");
+   
+  let url_moondata=`https://api.farmsense.net/v1/moonphases/?d=${timestamp}`;    
+  
+      fetch (url_moondata)
+          .then (resp => resp.json())
+          .then (data => {
+            setCurrentMoon(data)}
+          );
+          
+  },[Home]);
 
   
   //Fungerar men man måste ladda om shop sidan en gång för att få upp den tillagda producten
@@ -88,6 +107,7 @@ function App() {
       };
 
     const searchProduct = ((query)=> {
+      console.log(query);
         
       fetch (`http://localhost:5000/api/products/${query}`)
         .then(resp => resp.json())
@@ -98,7 +118,6 @@ function App() {
     });
 
   const filterHero = ((phase) => {
-    console.log (phase);
     fetch (`http://localhost:5000/api/heros/${phase}`)
     .then(resp => resp.json())
     .then (result => {
@@ -120,7 +139,12 @@ function App() {
       <PageHeader removeFromCart={removeFromCart} cart={cart} onSearch={searchProduct}/>
       <Switch>
         <Route path="/" exact>
-          <Home hero={filteredHero} products={products} filterHero={filterHero}/>
+          <Home 
+          currentMoon={currentMoon}
+          hero={filteredHero} 
+          products={searchResult}
+          relatedProducts={searchProduct}
+          filterHero={filterHero}/>
         </Route>
         <Route path="/shop">
           <Shop

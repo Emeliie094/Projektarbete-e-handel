@@ -7,18 +7,21 @@ function Hero({hero}) {
     return (
         <div>
             <div className={styles.wrapper} >
+            {hero.map((element) => (
                 <div className={styles.heroImage}>
-                <img  src={hero[0].imgUrl} alt="hero" width="100%" />
-                
-                <div className={styles.heroText}>
-                    <h1>{hero[0].heading}</h1>
-                        <p>{hero[0].info}</p>
-                    <Link to={hero[0].linkUrl}>Realted items</Link>
-                </div>   
-                </div>
+                    <img  src={element.imgUrl} alt={element.heading} width="100%" />
+                    <div className={styles.heroText}>
+                        <h1>{element.heading}</h1>
+                        <p>{element.info}</p>
+                        <Link to={element.linkUrl}>Realted items</Link>
+                    </div>   
+                </div>  
+            ))}
             </div>
         </div>
     )
 }
 
 export default Hero;
+
+
