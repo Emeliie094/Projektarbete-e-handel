@@ -3,10 +3,9 @@ import Hero from "../../components/Hero/Hero";
 import Moonphase from "../../components/Moonphase/Moonphase";
 import ProductCarousel from "../../components/ProductCarousel/ProductCarousel";
 import styles from "./Home.module.css";
-// import ProductCarousel from "../../components/ProductCarousel/ProductCarousel";
+
 
 const Home = ({hero,currentMoon,filterHero,relatedProducts,products}) => {
-   console.log(products);
 
    return (
       <div  >

@@ -29,11 +29,12 @@ function App() {
   const url_heros = "http://localhost:5000/api/heros"
 
     useEffect(() => {
-      console.log("fetch backend");
+
 
       fetch(url_products)
         .then(resp => resp.json())
         .then(data => {
+
           setProducts(data);
         });
         fetch(url_heros)
@@ -49,7 +50,7 @@ function App() {
  let timestamp = Math.floor(dateTime / 1000);
 
 useEffect (()=>{
-  console.log("fetch API");
+
    
   let url_moondata=`https://api.farmsense.net/v1/moonphases/?d=${timestamp}`;    
   
@@ -107,7 +108,7 @@ useEffect (()=>{
       };
 
     const searchProduct = ((query)=> {
-      console.log(query);
+
         
       fetch (`http://localhost:5000/api/products/${query}`)
         .then(resp => resp.json())

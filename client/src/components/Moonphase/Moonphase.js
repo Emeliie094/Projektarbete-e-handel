@@ -8,21 +8,28 @@ import styles from "./Moonphase.module.css";
 
 function Moonphase({currentMoon,filterHero,relatedProducts}) {
 
+    
+    const [defaultMoon,setDefaultMoon]=useState();
 
-    const [moonphase,setMoonphase]=useState("");
-    const [moon,setMoon]=useState("");
-    const [moonImg,setMoonImg]=useState("");
+    const [selectedMoon,setSelectedMoon]=useState({});
 
     useEffect(() => {
         currentMoon.map(element => {
             let phase = translateMoonPhase(element.Phase);
             let image = asignMoonPhaseImg(phase);
             let moonName = element.Moon[0];  
-            setMoonphase(phase);
-            setMoonImg(image);
-            setMoon(moonName);
+            let moon = 
+            {
+                phase,
+                image,
+                moonName
+            };
+
+            setDefaultMoon(moon);
+            setSelectedMoon(moon);
+            relatedProducts(phase);
             filterHero(phase);  
-            relatedProducts(phase);   
+
         })
       
     }, [currentMoon]);
@@ -34,14 +41,16 @@ const handleCurrentUserInput = (e) => {
     let userInput = e.target.value;
     const selectedValueId = e.target.selectedOptions[0].getAttribute('id');
 
-    //TODO-reset if field is empty, show currentMoon
-
     if (selectedValueId === Moon_phase){
     let phase = translateMoonPhase(userInput);
     let image = asignMoonPhaseImg(phase);
-    setMoon("");
-    setMoonphase(phase);
-    setMoonImg(image);
+
+    setSelectedMoon({
+        phase,
+        image,
+        moonName:""
+    })
+
     filterHero(phase);
     relatedProducts(phase);
 
@@ -50,23 +59,31 @@ const handleCurrentUserInput = (e) => {
     if (selectedValueId === Moon){
         let phase = translateMoonPhase("Full Moon");
         let image = asignMoonPhaseImg(phase);
-        setMoon(userInput);
-        setMoonphase(phase);
-        setMoonImg(image);
+        setSelectedMoon({
+            phase,
+            image,
+            moonName:userInput
+        })
+
         
     }
     
         if (selectedValueId === Month){
             let phase = translateMoonPhase("Full Moon");
             let image = asignMoonPhaseImg(phase);
-            setMoon(userInput);
-            setMoonphase(phase);
-            setMoonImg(image);
+            setSelectedMoon({
+                phase,
+                image,
+                moonName:userInput
+            })
+
         }
 
         if (!selectedValueId){
 
-            console.log("Add a reset function");
+            setSelectedMoon(defaultMoon);
+            relatedProducts(defaultMoon.phase);
+            
         }
 
 }
@@ -77,11 +94,11 @@ const handleCurrentUserInput = (e) => {
             <div className={styles.wrapper}>
                 <div className={styles.moonImg}>
                    
-                    <img src={moonImg} alt={moonphase}></img>
+                    <img src={selectedMoon.image} alt={selectedMoon.phase}></img>
                     <div className={styles.moonText}>
                     
-                    <h1>{moon}</h1>
-                    <p>{moonphase}</p>   
+                    <h1>{selectedMoon.moonName}</h1>
+                    <p>{selectedMoon.phase}</p>   
                     
                 </div>
                 </div>
@@ -92,7 +109,7 @@ const handleCurrentUserInput = (e) => {
                 <form className={styles.selectContainer}>
                 <h2>Set the moon you are interested in here:</h2> 
                     
-                    {/* <label to={Moon_phase} >Moonphase  */}
+                    
                     <select className={styles.selectBox} id={Moon_phase} onChange={handleCurrentUserInput}>
                         <option >Select moonphase</option>
                         <option id={Moon_phase} value={Full_moon}>Full Moon</option>
@@ -100,8 +117,7 @@ const handleCurrentUserInput = (e) => {
                         <option id={Moon_phase} value={Last_quarter}>Last Quarter Moon</option>
                         <option id={Moon_phase} value={First_quarter}>First Quarter Moon</option>
                     </select>
-                    {/* </label> */}
-                    {/* <label to={Moon}>Pick moon by moon name  */}
+                   
                     <select className={styles.selectBox} id={Moon} onChange={handleCurrentUserInput}>
                     <option>Select by name of fullmoon</option>
                         <option id={Moon} value="Wolf Moon">Wolf Moon</option>
@@ -113,8 +129,7 @@ const handleCurrentUserInput = (e) => {
                         <option id={Moon} value="Buck Moon">Buck Moon</option>
                         <option id={Moon} value="Sturgeon Moon">Sturgeon Moon</option>  
                     </select>
-                    {/* </label> */}
-                    {/* <label to={Month}>Pick moon by month  */}
+
                     <select className={styles.selectBox} id={Month} onChange={handleCurrentUserInput}>
                     <option>Select fullmoon name by month</option>
                         <option id={Month} value="Wolf Moon">January</option>
@@ -130,9 +145,6 @@ const handleCurrentUserInput = (e) => {
                         <option id={Month} value="Beaver Moon">November</option>
                         <option id={Month} value="Cold Moon">December</option>
                     </select>
-                    {/* </label> */}
-
-
                 </form>
             </div>
             </div>

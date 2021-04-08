@@ -2,6 +2,7 @@ import ProductCardGrid from "../../components/ProductCardGrid/ProductCardGrid.js
 import { useState } from "react";
 
 const Shop = ({ products, addToCart, Popup }) => {
+
   return (
     <div>
       <h1>Shop</h1>

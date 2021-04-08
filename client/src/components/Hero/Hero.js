@@ -8,7 +8,7 @@ function Hero({hero}) {
         <div>
             <div className={styles.wrapper} >
             {hero.map((element) => (
-                <div className={styles.heroImage}>
+                <div key={element.id}className={styles.heroImage}>
                     <img  src={element.imgUrl} alt={element.heading} width="100%" />
                     <div className={styles.heroText}>
                         <h1>{element.heading}</h1>

@@ -12,14 +12,19 @@ const settings = {
   slidesToShow: 2,
 };
 
-const ProductCarousel = ({ products }) => (
-  <div className={style.container}>
+const ProductCarousel = ({ products }) => {
+  
+  return (
+    products.length > 0 &&
+    <div className={style.container}>
     <Slider {...settings}>
       {products.map((product) => (
         <ProductCard key={product.id} product={product}/>
       ))}
     </Slider>
   </div>
-);
+  );
+
+};
 
 export default ProductCarousel;
