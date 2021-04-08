@@ -101,7 +101,7 @@ app.locals.products = [
         color: "rosa",
         moonphase: "blackmoon",
         moon: "snowmoon",
-        zodiac: "♉"
+        zodiac: "taurus"
       },
       {
       id: 9,
@@ -173,7 +173,7 @@ app.get("/api/products", (req, resp) => {
 app.get("/api/products/:query", (req,resp) => {
 
   const products = req.app.locals.products;
-  const searchTerm = req.params.query.toLocaleLowerCase();
+  const searchTerm = req.params.query.toLocaleLowerCase().replace(/\s+/, ""); 
   console.log(searchTerm);
 
   const product = products.filter((product) => {

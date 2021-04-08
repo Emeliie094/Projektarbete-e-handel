@@ -1,11 +1,13 @@
 import React from 'react'
 import {useState, useEffect} from 'react';
+import {useHistory} from 'react-router-dom';
 import {translateMoonPhase, asignMoonPhaseImg} from './script/Moonphase.script';
 import {Month,Moon_phase,Moon, Full_moon, Black_moon, Last_quarter, First_quarter} from './phases';
 import styles from "./Moonphase.module.css";
 
 
 function Moonphase({currentMoon,filterHero,relatedProducts}) {
+
 
     const [moonphase,setMoonphase]=useState("");
     const [moon,setMoon]=useState("");
@@ -20,7 +22,7 @@ function Moonphase({currentMoon,filterHero,relatedProducts}) {
             setMoonImg(image);
             setMoon(moonName);
             filterHero(phase);  
-            relatedProducts("fullmoon");   
+            relatedProducts(phase);   
         })
       
     }, [currentMoon]);
@@ -41,7 +43,7 @@ const handleCurrentUserInput = (e) => {
     setMoonphase(phase);
     setMoonImg(image);
     filterHero(phase);
-    relatedProducts("fullmoon");
+    relatedProducts(phase);
 
     }
 
@@ -62,6 +64,11 @@ const handleCurrentUserInput = (e) => {
             setMoonImg(image);
         }
 
+        if (!selectedValueId){
+
+            console.log("Add a reset function");
+        }
+
 }
 
 
@@ -71,27 +78,32 @@ const handleCurrentUserInput = (e) => {
                 <div className={styles.moonImg}>
                    
                     <img src={moonImg} alt={moonphase}></img>
-                </div>
-                <div className={styles.moonText}>
+                    <div className={styles.moonText}>
+                    
                     <h1>{moon}</h1>
                     <p>{moonphase}</p>   
-                </div>
-            </div>
-            <div className={styles.selectWrapper}>
-            <h2>Set the moon you are interested in here:</h2> 
-                <form className={styles.selectContainer}>
                     
-                    <label to={Moon_phase} >Moonphase 
+                </div>
+                </div>
+
+            
+            <div className={styles.selectWrapper}>
+            
+                <form className={styles.selectContainer}>
+                <h2>Set the moon you are interested in here:</h2> 
+                    
+                    {/* <label to={Moon_phase} >Moonphase  */}
                     <select className={styles.selectBox} id={Moon_phase} onChange={handleCurrentUserInput}>
-                        <option>--</option>
+                        <option >Select moonphase</option>
                         <option id={Moon_phase} value={Full_moon}>Full Moon</option>
                         <option id={Moon_phase} value={Black_moon}>New Moon</option>
                         <option id={Moon_phase} value={Last_quarter}>Last Quarter Moon</option>
                         <option id={Moon_phase} value={First_quarter}>First Quarter Moon</option>
                     </select>
-                    </label>
-                    <label to={Moon}>Pick moon by moon name 
+                    {/* </label> */}
+                    {/* <label to={Moon}>Pick moon by moon name  */}
                     <select className={styles.selectBox} id={Moon} onChange={handleCurrentUserInput}>
+                    <option>Select by name of fullmoon</option>
                         <option id={Moon} value="Wolf Moon">Wolf Moon</option>
                         <option id={Moon} value="Snow Moon">Snow Moon</option>
                         <option id={Moon} value="Worm Moon">Worm Moon</option>
@@ -101,9 +113,10 @@ const handleCurrentUserInput = (e) => {
                         <option id={Moon} value="Buck Moon">Buck Moon</option>
                         <option id={Moon} value="Sturgeon Moon">Sturgeon Moon</option>  
                     </select>
-                    </label>
-                    <label to={Month}>Pick moon by month 
+                    {/* </label> */}
+                    {/* <label to={Month}>Pick moon by month  */}
                     <select className={styles.selectBox} id={Month} onChange={handleCurrentUserInput}>
+                    <option>Select fullmoon name by month</option>
                         <option id={Month} value="Wolf Moon">January</option>
                         <option id={Month} value="Snow Moon">February</option>
                         <option id={Month} value="Worm Moon">March</option> 
@@ -117,10 +130,11 @@ const handleCurrentUserInput = (e) => {
                         <option id={Month} value="Beaver Moon">November</option>
                         <option id={Month} value="Cold Moon">December</option>
                     </select>
-                    </label>
+                    {/* </label> */}
 
 
                 </form>
+            </div>
             </div>
         </div>
     );

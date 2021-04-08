@@ -6,7 +6,7 @@ import blackmoon from '../moonImages/blackmoon.png';
 
 
 export const translateMoonPhase = (moonphase) => {
-    //Asign some moonphases to closest "primary" moonphase
+    //Asign some of the moonphases in the famersense API to closest "primary" moonphase
 
     let asignedMoonPhase ="";
     
