@@ -1,6 +1,7 @@
 import {useState} from 'react';
+import  useStickyState from './hooks/useStickyState';
 import styles from './AddProduct.module.css';
-import PreviewProductCard from '../../../components/PreviewProductCard/PreviewProductCard';
+import ProductCard from '../../../components/PreviewProductCard/PreviewProductCard';
 
 const AddProductForm = ({onAdd}) => {
 
@@ -8,14 +9,14 @@ const AddProductForm = ({onAdd}) => {
     const [openMoonphase,setOpenMoonphase]=useState(false);
     const [openMoon,setOpenMoon]=useState(false);
     
-    const [name, setName] = useState("");
-    const [description, setDescription] = useState("");
-    const [price, setPrice] = useState("");
-    const [imageUrl, setImageUrl] = useState("");
-    const [color, setColor] = useState("");
-    const [moonphase,setMoonphase] = useState("");
-    const [moon, setMoon] = useState("");
-    const [zodiac, setZodiac] = useState([]);
+    const [name, setName] = useStickyState("productForm_name","");
+    const [description, setDescription] = useStickyState("productForm_description","");
+    const [price, setPrice] = useStickyState("productForm_price","");
+    const [imageUrl, setImageUrl] = useStickyState("productForm_imageUrl","");
+    const [color, setColor] = useStickyState("productForm_color","");
+    const [moonphase,setMoonphase] = useStickyState("productForm_moonphase","");
+    const [moon, setMoon] = useStickyState("productForm_moon","");
+    const [zodiac, setZodiac] = useStickyState("productForm_zodiac","");
 
     const handleSubmit = (event)=>{
         event.preventDefault();
@@ -205,7 +206,8 @@ const AddProductForm = ({onAdd}) => {
             skapar upp detta under previewProduct så kan vi radera och ändra när map() fått en egen komponent. */}
             <section className={styles.preview}>
                 <h1>Preview product</h1>
-            <PreviewProductCard product={PreviewProduct()}/>
+            <ProductCard product={PreviewProduct()}/>
+            {/* <PreviewProductCard product={PreviewProduct()}/> */}
             </section>
         </div>
     )
