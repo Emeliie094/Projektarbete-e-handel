@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 import PageHeader from "./components/PageHeader/PageHeader.js";
+import PageFooter from "./components/PageFooter/PageFooter.js"
 import Home from "./pages/Home/Home.js";
 import Shop from "./pages/Shop/Shop.js";
 import DetailPage from "./pages/DetailPage/DetailPage.js";

@@ -1,5 +1,5 @@
 .wrapper {
-  margin-top:25px;
+  /* margin-top:25px; */
   height: auto;
   width: 100%;
   display: flex;
@@ -7,10 +7,29 @@
   justify-content: center;
   padding: 0 50px;
 
+
+  background: url("./backgroundHome.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
   
+}
+.cardWrapper{
+  margin: 25px;
+  height: auto;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 0 50px;
+
 }
 
 .moonImg {
+  /* margin-top:25px; */
+  background: #F8EDEB;
   /* z-index: -10; */
   float: left;
   height: 520px;

@@ -8,14 +8,24 @@ li {
   list-style-type: none;
 }
 
+header {
+  position: sticky;
+  top: 0;
+  z-index: 15;
+}
 
 nav {
   display: flex;
   justify-content: space-around;
   min-height: 10vh;
   align-items: center;
-  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   background-color: rgb(253, 213, 219);
+
+  font-family: "Roboto", sans-serif;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  font-weight: 500;
 }
 
 nav .nav-links {
@@ -26,13 +36,32 @@ nav .nav-links {
 
 nav .nav-link {
   text-decoration: none;
-  color: black;
+  color: #121212;
+  position: relative;
 }
 
-nav .nav-link:hover {
+nav .nav-link:before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  bottom: 0;
+  left: 0;
+  background-color: #363636;
+  visibility: hidden;
+  transform: scaleX(0);
+  transition: all 0.3s ease-in-out;
+}
+
+nav .nav-link:hover:before {
+  visibility: visible;
+  transform: scaleX(1.2);
+}
+
+/* nav .nav-link:hover {
   border-bottom: solid 1px rgb(51, 51, 51);
   cursor: pointer;
-}
+} */
 
 nav .shopping-nav {
   display: none;
@@ -56,16 +85,65 @@ nav .burger {
   cursor: pointer;
 }
 
-.search-bar-field {
+/* .search-bar-field {
   border: none;
   border-bottom: 1px solid black;
   width: 60%;
   background-color: transparent;
+} */
+
+.search-bar-field {
+  border: none;
+
+  background-color: transparent;
+}
+
+.search-bar-div {
+  width: 100%;
+  padding: 7px 15px;
+
+  background-color: transparent;
+  transition: transform 250ms ease-in-out;
+  font-size: 14px;
+  line-height: 18px;
+
+  color: #575756;
+  background-color: transparent;
+  border-radius: 50px;
+  border: 1px solid #575756;
+  transition: all 250ms ease-in-out;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+}
+
+.search-bar-field::placeholder {
+  color: rgba(87, 87, 86, 0.8);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+.search-bar-div:hover,
+:focus {
+  padding: 12px 0;
+  outline: 0;
+  border: 1px solid transparent;
+  border-radius: 0;
+  background-position: 100% center;
+}
+
+.search-bar-field:hover {
+  border-bottom: 1px solid #575756;
 }
 
 .search-bar-btn {
   border: none;
   background-color: transparent;
+}
+
+.search-bar-btn:hover {
+  cursor: pointer;
+  transition: all 250ms ease-in;
+  transform: scale(1.3);
 }
 
 @media all and (max-width: 768px) {
@@ -122,14 +200,14 @@ nav .burger {
     transform: translateX(+500px);
     transition: 0.7s ease-in-out;
     z-index: 10;
-    overflow-x:hidden;
+    overflow-x: hidden;
   }
 
-  nav hr{
+  nav hr {
     margin: 15px 0 0 0;
   }
 
-  nav .shopping-items{
+  nav .shopping-items {
     padding: 5px;
     font-family: "Roboto", sans-serif;
     font-size: 13px;
@@ -200,7 +278,7 @@ nav .li {
   font-weight: 500;
 }
 
-nav div > img{
+nav div > img {
   width: 50px;
   height: 50px;
   padding: 5px 5px 2px 5px;

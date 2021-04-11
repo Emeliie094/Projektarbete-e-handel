@@ -104,6 +104,8 @@ const PageHeader = ({ onSearch, removeFromCart, cart }) => {
           className="search-bar"
           style={{ transform: openSearch ? "translateX(0px)" : "" }}
         >
+          <div className="search-bar-div">
+
           <input
             className="search-bar-field"
             type="search"
@@ -112,6 +114,8 @@ const PageHeader = ({ onSearch, removeFromCart, cart }) => {
             value={query}
             onChange={(e)=> setQuery(e.target.value)} /> 
             <button className="search-bar-btn"><i className="fas fa-search "></i></button>
+            
+          </div>
         </form>
 
         <i onClick={openMenuIcon} className="fas fa-bars burger"></i>

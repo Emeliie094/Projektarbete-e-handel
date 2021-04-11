@@ -92,6 +92,7 @@ const handleCurrentUserInput = (e) => {
     return (
         <div>
             <div className={styles.wrapper}>
+                <div className={styles.cardWrapper}>
                 <div className={styles.moonImg}>
                    
                     <img src={selectedMoon.image} alt={selectedMoon.phase}></img>
@@ -146,6 +147,7 @@ const handleCurrentUserInput = (e) => {
                         <option id={Month} value="Cold Moon">December</option>
                     </select>
                 </form>
+                </div>
             </div>
             </div>
         </div>
