@@ -1,0 +1,13 @@
+.wrapper{
+    display: flex;
+    
+    justify-content: space-between;
+    align-items: center;
+}
+
+.wrapper >input{
+    margin:5px;
+    width: auto;
+    padding: 10px;
+    font-size: 1rem;
+}

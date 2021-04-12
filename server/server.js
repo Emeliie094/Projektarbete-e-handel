@@ -161,12 +161,30 @@ app.locals.heros = [{
 },
 ]
 
+
 //Get all products
 app.get("/api/products", (req, resp) => {
 
     const products = req.app.locals.products;
     
     resp.json(products);
+});
+
+//Get product from product.id
+app.get("/api/products/:id", (req, resp) => {
+
+  const productId = req.params.id;
+
+  const products = req.app.locals.products;
+  
+  const product = products.find(product => product.id == productId);
+
+  if (product) {
+      resp.json(product);
+  } else {
+      resp.status(404).end();
+  }
+
 });
 
 //search products from user query
@@ -234,10 +252,40 @@ app.delete("/api/products/:id", (req, resp) => {
   resp.status(204).end(); // 204 No Content
 });
 
-// //PATCH edited products
-// app.patch("/api/products/:id", (req,resp)) => {
+//PUT update product
+app.patch("/api/products/:id", (req,res) => {
 
-// });
+  const {id,name,price,description,imageUrl,color,moonphase,moon,zodiac} = req.body;
+  
+
+  const updatedProduct =   {
+    id,
+    name,
+    price,
+    description,
+    imageUrl,
+    color,
+    moonphase,
+    moon,
+    zodiac
+  };
+
+//   const products = req.app.locals.products;
+
+//   const product = products.filter((product) => {
+    
+//       return (product.id === updatedProduct.id);
+// }
+    
+  //updatera produkten (patch)
+    
+  );
+
+  products.push(product);
+
+  res.status(201).end();
+
+});
 
 //GET all heros
 app.get("/api/heros", (req, resp) => {
