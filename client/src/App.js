@@ -121,15 +121,23 @@ useEffect (()=>{
 //Skicka till servern som ska hitta id och uppdatera produkten
 const updateProduct = (product) => {
 
+  console.log(product);
+
 
   fetch(`http://localhost:5000/api/products/${product.id}`, {
     
-    method: "PATCH",
+    method: "PUT",
     headers: {
       "Content-Type": "application/json"
     },
       body: JSON.stringify(product)
     })
+
+    fetch (url_products)
+    .then (response => response.json())
+    .then (result => {
+      console.log(result)
+    });
   
    
 }

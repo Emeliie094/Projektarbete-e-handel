@@ -253,7 +253,7 @@ app.delete("/api/products/:id", (req, resp) => {
 });
 
 //PUT update product
-app.patch("/api/products/:id", (req,res) => {
+app.put("/api/products/:id", (req,res) => {
 
   const {id,name,price,description,imageUrl,color,moonphase,moon,zodiac} = req.body;
   
@@ -276,14 +276,19 @@ app.patch("/api/products/:id", (req,res) => {
 
   const products = req.app.locals.products;
 
-//   const product = products.indexOf((product) => {
+  const productIndex = products.indexOf((product) => {
     
-//       return (product.id === updatedProduct.id);
-// }
-    
-  //updatera produkten (patch)
-    
-  // );
+      return (product.id === updatedProduct.id);
+  });
+
+  if (productIndex > -1) { 
+    products[productIndex].push(updatedProduct);
+  }
+
+
+
+
+  res.status(200).end();
 
 
 });
