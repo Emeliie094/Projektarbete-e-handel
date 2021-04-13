@@ -270,20 +270,21 @@ app.patch("/api/products/:id", (req,res) => {
     zodiac
   };
 
-//   const products = req.app.locals.products;
+  console.log(updatedProduct);
 
-//   const product = products.filter((product) => {
+  
+
+  const products = req.app.locals.products;
+
+//   const product = products.indexOf((product) => {
     
 //       return (product.id === updatedProduct.id);
 // }
     
   //updatera produkten (patch)
     
-  );
+  // );
 
-  products.push(product);
-
-  res.status(201).end();
 
 });
 

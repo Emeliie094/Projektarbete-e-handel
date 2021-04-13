@@ -18,8 +18,11 @@ function ProductTable({products, onDelete, onEdit}) {
             id:product.id,
             name:product.name,
             price:product.price,
-            moon:product.moon,
+            description:product.description,
+            imageUrl:product.imageUrl,
+            color:product.color,
             moonphase:product.moonphase,
+            moon:product.moon,
             zodiac:product.zodiac
         };
         setCurrentFormState(listProduct);  
