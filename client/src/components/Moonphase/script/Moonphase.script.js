@@ -24,6 +24,10 @@ export const translateMoonPhase = (moonphase) => {
     
     else if (moonphase.toLowerCase().includes("waning crescent")){
                     asignedMoonPhase=Black_moon;
+    } 
+    
+    else if (moonphase.toLowerCase().includes("new moon")){
+        asignedMoonPhase=Black_moon;
     } else {
         asignedMoonPhase=moonphase;
     }
