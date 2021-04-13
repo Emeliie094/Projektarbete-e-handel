@@ -213,12 +213,9 @@ const AddProductForm = ({onAdd}) => {
 
                 </div>
             </form>
-            {/* Vill hämta in productCard för att göra en autentisk preview men vill lägga map() funktionen i en egen komponent så att ett kort genererar från en produkt,
-            skapar upp detta under previewProduct så kan vi radera och ändra när map() fått en egen komponent. */}
             <section className={styles.preview}>
                 <h1>Preview product</h1>
             <ProductCard product={PreviewProduct()}/>
-            {/* <PreviewProductCard product={PreviewProduct()}/> */}
             </section>
         </div>
     )

@@ -170,23 +170,6 @@ app.get("/api/products", (req, resp) => {
     resp.json(products);
 });
 
-//Get product from product.id
-app.get("/api/products/:id", (req, resp) => {
-
-  const productId = req.params.id;
-
-  const products = req.app.locals.products;
-  
-  const product = products.find(product => product.id == productId);
-
-  if (product) {
-      resp.json(product);
-  } else {
-      resp.status(404).end();
-  }
-
-});
-
 //search products from user query
 app.get("/api/products/:query", (req,resp) => {
 

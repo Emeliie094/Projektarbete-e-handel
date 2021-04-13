@@ -1,16 +1,4 @@
 import styles from "./ProductTable.module.css";
-<<<<<<< HEAD
-import {useHistory} from "react-router-dom"
-
-function ProductTable({products, onDelete, onEdit}) {
-
-    const history = useHistory()
-
-    function handleClick() {
-       history.push({
-         pathname: "/admin/addproduct",
-       });}
-=======
 import { useState } from 'react';
 import EdirForm from "../EditForm/EditForm";
 
@@ -42,14 +30,12 @@ function ProductTable({products, onDelete, onEdit}) {
     }
 
     const updateProduct = (product)=>{
-        // setEditing(false);
         onEdit(product);
     };
 
     
 
   
->>>>>>> admin_fix
 
     return (
         <div className={styles.wrapper}>
@@ -79,15 +65,11 @@ function ProductTable({products, onDelete, onEdit}) {
 
                </tbody>
            </table> 
-<<<<<<< HEAD
-           <button onClick={handleClick}>Add product</button>
-=======
           <div>
           {editing === true 
           ? <EdirForm product={currentFormState} onUpdate={updateProduct} setEditing={setEditing} onDelete={onDelete}/> : null
       }
           </div>
->>>>>>> admin_fix
         </div>
     )
 }
