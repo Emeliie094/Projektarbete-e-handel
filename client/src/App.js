@@ -119,6 +119,30 @@ useEffect (()=>{
           
     });
 
+//Skicka till servern som ska hitta id och uppdatera produkten
+const updateProduct = (product) => {
+
+  console.log(product);
+
+
+  fetch(`http://localhost:5000/api/products/${product.id}`, {
+    
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json"
+    },
+      body: JSON.stringify(product)
+    })
+
+    fetch (url_products)
+    .then (response => response.json())
+    .then (result => {
+      setProducts(result)
+    });
+  
+   
+}
+
   const filterHero = ((phase) => {
     fetch (`http://localhost:5000/api/heros/${phase}`)
     .then(resp => resp.json())
@@ -166,7 +190,7 @@ useEffect (()=>{
           <Checkout removeFromCart={removeFromCart} cart={cart} />
         </Route>
         <Route path="/admin" exact>
-          <Admin products={products} onDelete={deleteProduct} onSearch={searchProduct}/>
+          <Admin products={products} onDelete={deleteProduct} onSearch={searchProduct} onEdit={updateProduct}/>
         </Route>
         <Route path="/admin/addproduct">
           <AddProductForm onAdd={addProduct} />
