@@ -270,26 +270,22 @@ app.put("/api/products/:id", (req,res) => {
     zodiac
   };
 
-  console.log(updatedProduct);
-
-  
+  // console.log(updatedProduct);
 
   const products = req.app.locals.products;
 
-  const productIndex = products.indexOf((product) => {
+  const productIndex = products.findIndex((product) => {
     
       return (product.id === updatedProduct.id);
   });
 
   if (productIndex > -1) { 
-    products[productIndex].push(updatedProduct);
+    products[productIndex] = updatedProduct;
   }
 
+  console.log(productIndex);
 
-
-
-  res.status(200).end();
-
+  res.json(products);
 
 });
 

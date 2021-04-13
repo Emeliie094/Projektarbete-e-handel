@@ -136,7 +136,7 @@ const updateProduct = (product) => {
     fetch (url_products)
     .then (response => response.json())
     .then (result => {
-      console.log(result)
+      setProducts(result)
     });
   
    
