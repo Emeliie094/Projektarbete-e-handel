@@ -1,6 +1,15 @@
 import styles from "./ProductTable.module.css";
+import {useHistory} from "react-router-dom"
 
 function ProductTable({products, onDelete, onEdit}) {
+
+    const history = useHistory()
+
+    function handleClick() {
+       history.push({
+         pathname: "/admin/addproduct",
+       });}
+
     return (
         <div className={styles.wrapper}>
            <table className={styles.table}>
@@ -33,7 +42,7 @@ function ProductTable({products, onDelete, onEdit}) {
                   ))}
                </tbody>
            </table> 
-           <button>Add product</button>
+           <button onClick={handleClick}>Add product</button>
         </div>
     )
 }

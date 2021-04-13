@@ -1,6 +1,8 @@
 import {useState} from 'react';
+import {useHistory} from "react-router-dom"
 import styles from './AddProduct.module.css';
 import PreviewProductCard from '../../../components/PreviewProductCard/PreviewProductCard';
+
 
 const AddProductForm = ({onAdd}) => {
 
@@ -16,6 +18,14 @@ const AddProductForm = ({onAdd}) => {
     const [moonphase,setMoonphase] = useState("");
     const [moon, setMoon] = useState("");
     const [zodiac, setZodiac] = useState([]);
+
+    const history = useHistory()
+    
+    function handleClick() {
+        history.push({
+          pathname: "/admin",
+        });}
+ 
 
     const handleSubmit = (event)=>{
         event.preventDefault();
@@ -94,6 +104,7 @@ const AddProductForm = ({onAdd}) => {
 
     return (
         <div className={styles.wrapper}>
+            <button className={styles.goBackBtn} onClick={handleClick}>⇦ back</button>
             <form onSubmit={handleSubmit} className={styles.form} >
                 <div className={styles.inputFields}>
 

@@ -60,3 +60,9 @@
 .zodiac:hover, .moonphase:hover, .moon:hover{
     cursor: pointer;
 }
+
+.goBackBtn{
+    font-size: 1rem;
+    padding: 5px 10px;
+    color: #363636;
+}
