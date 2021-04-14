@@ -13,7 +13,6 @@ const Shop = ({ products, addToCart, Popup }) => {
       </div>
 
       <ProductCardGrid products={products} addToCart={addToCart} Popup={Popup} />
-      <PageFooter/>
     </div>
   );
 };

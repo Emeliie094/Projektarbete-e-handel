@@ -1,7 +1,7 @@
 import { useState, useEffect} from 'react';
 import styles from './EditForm.module.css';
 
-const EdirForm = ({product, onUpdate, setEditing, onDelete}) => {
+const EditForm = ({product, onUpdate, setEditing, onDelete}) => {
 
     const [id,setId]=useState(product.id);
     const [name,setName]=useState(product.name);
@@ -67,7 +67,7 @@ const EdirForm = ({product, onUpdate, setEditing, onDelete}) => {
                         
                         onChange={(e) => setPrice(e.target.value)}
                     />
-                     <input
+                     <textarea
                         type="text"
                         placeholder={product.description}  
                         value={description}  
@@ -82,13 +82,13 @@ const EdirForm = ({product, onUpdate, setEditing, onDelete}) => {
                         onChange={(e) => setImageUrl(e.target.value)}
                         />
 
-                        {/* <input
+                        <input
                         type="text"
                         placeholder={product.color}  
                         value={color}  
                         
                         onChange={(e) => setColor(e.target.value)}
-                        /> */}
+                        />
 
                         <input
                         type="text"
@@ -113,10 +113,11 @@ const EdirForm = ({product, onUpdate, setEditing, onDelete}) => {
                         onChange={(e) => setZodiac(e.target.value)}
                         />
     
-               
-                <button>Save</button>
-                <button onClick= {() => {setEditing(false)}}>Cancel</button>
-                <button onClick= {() => {onDelete(product.id)}}>Delete</button>
+                    <div className={styles.buttons}>
+                        <button>Save</button>
+                        <button onClick= {() => {setEditing(false)}}>Cancel</button>
+                        <button onClick= {() => {onDelete(product.id)}}>Delete</button>
+                    </div>  
     
             </form>
         </div>
@@ -126,4 +127,4 @@ const EdirForm = ({product, onUpdate, setEditing, onDelete}) => {
   
 };
 
-export default EdirForm;
+export default EditForm;

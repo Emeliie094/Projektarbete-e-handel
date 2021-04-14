@@ -10,7 +10,6 @@ const Cart = ({removeFromCart, cart }) => {
       <h1>Checkout</h1>
       </div>
       <ProductCheckout removeFromCart={removeFromCart} cart={cart} />
-    <PageFooter/>
     </div>
   );
 };

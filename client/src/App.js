@@ -63,9 +63,10 @@ useEffect (()=>{
           
   },[Home]);
 
-  
-  //Fungerar men man måste ladda om shop sidan en gång för att få upp den tillagda producten
+
   const addProduct = (product) => {
+
+    console.log(product);
     
     fetch(url_products, {
        method: "POST",
@@ -163,6 +164,7 @@ const updateProduct = (product) => {
   return (
     <Router>
       <PageHeader removeFromCart={removeFromCart} cart={cart} onSearch={searchProduct}/>
+      
       <Switch>
         <Route path="/" exact>
           <Home 
@@ -202,6 +204,7 @@ const updateProduct = (product) => {
           <NotFound />
         </Route>
       </Switch>
+      <PageFooter/>
     </Router>
   );
 }

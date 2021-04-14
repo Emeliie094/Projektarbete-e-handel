@@ -1,31 +1,31 @@
 .wrapper {
     display: flex;
-    flex-direction: column;
-    align-items: center;
     
 }
-
-.tablehead{
-    margin: 20px;
-    font-size: 2rem;
+.wrapper >div {
+    width: 50%;
+    padding:20px;
 }
 
-.table{
-    width: 70%;
-}
 
-/* .bodyrow:nth-child(odd){
-    background: rgb(219, 219, 219);
-    
-} */
+.deletebtn, .editbtn{
+    border:1px solid black;
+    padding: 0.5em 2rem;
+    margin:3px;
+    background-color: transparent;
+    cursor: pointer;
+}
 
 .bodyrow >td {
     background: rgb(219, 219, 219);
     text-align: center;
+    width: auto;
+    
+
 }
 
 .img {
     border: 1px solid white;
-    height: 5em;
+    height: 6em;
     width: auto;
 }

@@ -11,7 +11,6 @@ const SearchResult = ({searchResult})=>{
       <h1>Search result</h1>
       </div>
             <ProductCardGrid products={searchResult}/>
-            <PageFooter/>
         </div>
         
     );

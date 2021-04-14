@@ -22,7 +22,6 @@ const NotFound = () => {
    }}>Go to "Home"</button>
                 </div>
             </div>
-            <PageFooter/>
         </div>
     )
 }

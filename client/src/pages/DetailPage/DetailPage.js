@@ -24,7 +24,6 @@ const DetailsPage = ({  products, addToCart, Popup  }) => {
         history.goBack()
    }}>Go back to all products</button>
         </div>
-        <PageFooter/>
         </div>
         
   );

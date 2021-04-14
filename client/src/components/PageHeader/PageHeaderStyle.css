@@ -19,7 +19,7 @@ nav {
   justify-content: space-around;
   min-height: 10vh;
   align-items: center;
-  background-color: rgb(253, 213, 219);
+  background-color: rgb(255, 242, 244);
 
   font-family: "Roboto", sans-serif;
   font-size: 13px;
@@ -84,13 +84,6 @@ nav .burger {
   display: none;
   cursor: pointer;
 }
-
-/* .search-bar-field {
-  border: none;
-  border-bottom: 1px solid black;
-  width: 60%;
-  background-color: transparent;
-} */
 
 .search-bar-field {
   border: none;
@@ -164,7 +157,7 @@ nav .burger {
     top: 10vh;
     left: 0;
     height: 50vh;
-    background-color: rgba(255, 184, 195, 0.671);
+    background-color: rgba(255, 255, 255, 0.671);
     width: 35%;
     padding: 40px;
     transform: translateX(-500px);

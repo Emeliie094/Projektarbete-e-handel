@@ -41,10 +41,18 @@ const AddProductForm = ({onAdd}) => {
             moon,
             zodiac
         }
-
-        console.log(product);
-
+         
         onAdd(product);
+
+        setName("");
+        setDescription("");
+        setPrice("");
+        setImageUrl("");
+        setColor("");
+        setMoonphase("");
+        setMoon("");
+        setZodiac("");
+
     }
 
     
@@ -105,7 +113,7 @@ const AddProductForm = ({onAdd}) => {
 
     return (
         <div className={styles.wrapper}>
-            <button className={styles.goBackBtn} onClick={handleClick}>⇦ back</button>
+         
             <form onSubmit={handleSubmit} className={styles.form} >
                 <div className={styles.inputFields}>
 
@@ -113,7 +121,6 @@ const AddProductForm = ({onAdd}) => {
                     type="text"
                     className={styles.input}
                     placeholder="Product name"
-                    // id="name"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                     />
@@ -121,7 +128,6 @@ const AddProductForm = ({onAdd}) => {
                     <textarea
                     className={styles.textarea}
                     placeholder="Products description"
-                    // id="description"
                     value={description}
                     onChange={(e) => setDescription(e.target.value)}
                     ></textarea>
@@ -132,7 +138,6 @@ const AddProductForm = ({onAdd}) => {
                     type="text"
                     className={styles.input}
                     placeholder="Price"
-                    // id="price"
                     value={price}
                     onChange={(e) => setPrice(e.target.value)}
                     />
@@ -142,7 +147,6 @@ const AddProductForm = ({onAdd}) => {
                     type="text"
                     className={styles.input}
                     placeholder="Image"
-                    // id="imageUrl"
                     value={imageUrl}
                     onChange={(e) => setImageUrl(e.target.value)}
                     />
@@ -151,13 +155,10 @@ const AddProductForm = ({onAdd}) => {
                     type="text"
                     className={styles.input}
                     placeholder="Color"
-                    // id="color"
                     value={color}
                     onChange={(e) => setColor(e.target.value)}
                     />
-                     <button type="submit" className={styles.addBtn}>
-                    Add Product
-                </button>
+                    
                 </div>
                
                 <div className={styles.selectFields}>
@@ -212,11 +213,14 @@ const AddProductForm = ({onAdd}) => {
                     </div>              
 
                 </div>
+                <section className={styles.preview}>
+                    <h1>Product preview:</h1>
+                    <ProductCard product={PreviewProduct()}/>
+                </section>
+                <button type="submit" className={styles.addBtn}>Add Product</button>
             </form>
-            <section className={styles.preview}>
-                <h1>Preview product</h1>
-            <ProductCard product={PreviewProduct()}/>
-            </section>
+            
+                <button className={styles.addBtn} onClick={handleClick}>⇦ Back to dashboard</button>
         </div>
     )
 }

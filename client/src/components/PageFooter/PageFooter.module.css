@@ -14,12 +14,12 @@
    color: #363636;
 }
 
-button{
+.footerLink{
    background-color: transparent;
    border: none;
 }
 
-button:hover{
+.footerLink:hover{
    cursor: pointer;
    font-weight: bolder;
 }

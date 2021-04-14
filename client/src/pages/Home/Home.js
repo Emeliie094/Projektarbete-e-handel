@@ -3,7 +3,6 @@ import Hero from "../../components/Hero/Hero";
 import Moonphase from "../../components/Moonphase/Moonphase";
 import ProductCarousel from "../../components/ProductCarousel/ProductCarousel";
 import styles from "./Home.module.css";
-import PageFooter from "../../components/PageFooter/PageFooter"
 import {useHistory} from "react-router-dom"
 
 const Home = ({hero,currentMoon,filterHero,relatedProducts,products}) => {
@@ -25,13 +24,11 @@ const Home = ({hero,currentMoon,filterHero,relatedProducts,products}) => {
                <h2>Related moon rituals:</h2>
                <Hero hero={hero}/>
             </div>
-         <h2>Related products:</h2>
-         <ProductCarousel products={products}/>
-         <div className={styles.buttonContainer}>
-         <button className={styles.button} onClick={handleClick}>See all products in our shop</button>
-
-         </div>
-         <PageFooter/>
+               <h2>Related products:</h2>
+               <ProductCarousel products={products}/>
+            <div className={styles.buttonContainer}>
+               <button className={styles.button} onClick={handleClick}>See all products in our shop</button>
+            </div>
          </div>
       </div>     
    );
