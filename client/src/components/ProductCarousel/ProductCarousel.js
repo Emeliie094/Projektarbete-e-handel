@@ -12,14 +12,14 @@ const settings = {
   slidesToShow: 2,
 };
 
-const ProductCarousel = ({ products }) => {
+const ProductCarousel = ({ products, addToCart }) => {
   
   return (
     products.length > 0 &&
-    <div className={style.container}>
+    <div className={style.container} addToCart={addToCart} >
     <Slider {...settings}>
       {products.map((product) => (
-        <ProductCard key={product.id} product={product}/>
+        <ProductCard key={product.id} product={product} addToCart={addToCart} />
       ))}
     </Slider>
   </div>

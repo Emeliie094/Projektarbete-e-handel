@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { useState } from "react";
 import Popup from "../../../components/PopUpCart/PopUpCart";
 
-const DetailCard = ({ products, addToCart, Popup }) => {
+const DetailCard = ({ products, addToCart }) => {
   const { id } = useParams();
 
   const product = products.find((product) => product.id == id);
@@ -31,7 +31,7 @@ const DetailCard = ({ products, addToCart, Popup }) => {
           </div>
         </div>
       </div>
-      {Popup}
+      {/* {Popup} */}
     </div>
   );
 };
