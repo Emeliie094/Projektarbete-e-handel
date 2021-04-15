@@ -57,16 +57,11 @@
     cursor: pointer;
 }
 
-.goBackBtn{
-    font-size: 1.5rem;
-    padding: 5px 10px;
-    color: #363636;
-    border:none;
-    background-color: transparent;
-    cursor:pointer;
-}
 
 .addBtn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     height: 45px;
     width: 240px;
     margin: 20px 75px 25px 10px;
@@ -83,8 +78,7 @@
     transition: all 0.3s ease 0s;
     cursor: pointer;
     outline: none;
-    position:relative;
-    left:30%;
+
 }
 
 .addBtn:hover{
