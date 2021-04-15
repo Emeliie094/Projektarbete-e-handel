@@ -2,6 +2,8 @@
 import Hero from "../../components/Hero/Hero";
 import Moonphase from "../../components/Moonphase/Moonphase";
 import ProductCarousel from "../../components/ProductCarousel/ProductCarousel";
+import PageFooter from "../../components/PageFooter/PageFooter.js";
+
 import styles from "./Home.module.css";
 import {useHistory} from "react-router-dom"
 
