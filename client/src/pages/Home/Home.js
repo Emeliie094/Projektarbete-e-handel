@@ -24,13 +24,6 @@ const Home = ({hero,currentMoon,filterHero,relatedProducts,products, addToCart})
                <h2>Related moon rituals:</h2>
                <Hero hero={hero}/>
             </div>
-<<<<<<< HEAD
-               <h2>Related products:</h2>
-               <ProductCarousel products={products}/>
-            <div className={styles.buttonContainer}>
-               <button className={styles.button} onClick={handleClick}>See all products in our shop</button>
-            </div>
-=======
          <h2>Related products:</h2>
           <ProductCarousel products={products} addToCart={addToCart}/>
          
@@ -39,7 +32,6 @@ const Home = ({hero,currentMoon,filterHero,relatedProducts,products, addToCart})
 
          </div>
          <PageFooter/>
->>>>>>> bcac06f71a7c8c767ae2c979b8f68a09afba33cb
          </div>
       </div>     
    );
