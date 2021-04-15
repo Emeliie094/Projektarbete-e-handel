@@ -2,7 +2,7 @@
 import Hero from "../../components/Hero/Hero";
 import Moonphase from "../../components/Moonphase/Moonphase";
 import ProductCarousel from "../../components/ProductCarousel/ProductCarousel";
-import PageFooter from "../../components/PageFooter/PageFooter.js";
+
 
 import styles from "./Home.module.css";
 import {useHistory} from "react-router-dom"
@@ -33,7 +33,6 @@ const Home = ({hero,currentMoon,filterHero,relatedProducts,products, addToCart})
          <button className={styles.button} onClick={handleClick}>See all products in our shop</button>
 
          </div>
-         <PageFooter/>
          </div>
       </div>     
    );

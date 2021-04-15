@@ -59,8 +59,6 @@ function App() {
 
 
   const addProduct = (product) => {
-
-    console.log(product);
     
     fetch(url_products, {
       method: "POST",

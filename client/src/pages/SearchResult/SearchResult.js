@@ -10,7 +10,7 @@ const SearchResult = ({searchResult, addToCart})=>{
             <div className={style.heading}>
       <h1>Search result</h1>
       </div>
-            <ProductCardGrid products={searchResult}/>
+            <ProductCardGrid products={searchResult} addToCart={addToCart}/>
         </div>
         
     );
