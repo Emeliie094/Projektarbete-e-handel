@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import style from "./styles.module.css";
 import { useState } from "react";
 
-const ProductCard = ({ product, addToCart, Popup }) => {
+const ProductCard = ({ product, addToCart }) => {
 
   return (
     <div className={style.wrapper}>
@@ -49,7 +49,7 @@ const ProductCard = ({ product, addToCart, Popup }) => {
           </div>
         </div>
       </div>
-      {Popup}
+      {/* {Popup} */}
     </div>
   );
 };
