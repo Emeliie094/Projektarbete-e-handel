@@ -160,6 +160,7 @@ const AddProductForm = ({onAdd}) => {
                     />
                     
                 </div>
+                
                
                 <div className={styles.selectFields}>
 
@@ -210,17 +211,22 @@ const AddProductForm = ({onAdd}) => {
                             <option className={styles.option}value="Cold Moon">Cold Moon | Dec 19</option>
                         </select>
                         </label>    
-                    </div>              
-
+                    </div> 
+                    <div>
+                        <button type="submit" className={styles.addBtn}>Add Product</button>
+                        <button className={styles.addBtn} onClick={handleClick}>⇦ Back to dashboard</button>
+                    </div>             
+                  
                 </div>
+                
                 <section className={styles.preview}>
                     <h1>Product preview:</h1>
                     <ProductCard product={PreviewProduct()}/>
                 </section>
-                <button type="submit" className={styles.addBtn}>Add Product</button>
+                
             </form>
             
-                <button className={styles.addBtn} onClick={handleClick}>⇦ Back to dashboard</button>
+               
         </div>
     )
 }
